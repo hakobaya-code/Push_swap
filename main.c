@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.C                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/11/12 15:49:53 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:51:14 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	main(int argc, char **argv)
 		return (0);
 	else
 	{
-		void(argv);
+		(void)argv;
 	}
 	return (0);
 }
-
 
  __attribute__((destructor))
  static void destructor()
  {
  	system("leaks -q push_swap");
+
  }
