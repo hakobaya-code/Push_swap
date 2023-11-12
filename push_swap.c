@@ -6,9 +6,13 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:14 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/10/12 15:26:23 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:27:00 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	main(void)
+{
+	return (0);
+}
