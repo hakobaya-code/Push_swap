@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/11/12 16:00:58 by hakobaya         ###   ########.fr       */
+/*   Created: 2023/11/12 16:07:42 by hakobaya          #+#    #+#             */
+/*   Updated: 2023/11/12 16:09:13 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	else
-	{
-		(void)argv;
-	}
-	return (0);
-}
-
-__attribute__((destructor))
-static void	destructor()
-{
-	system("leaks -q push_swap");
-}
+//pa, pb
+//pa (push a): Take the first element at the top of b and put it at the top of a.
+//Do nothing if b is empty.
+//pb (push b): Take the first element at the top of a and put it at the top of b.
+//Do nothing if a is empty.
