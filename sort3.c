@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:06:05 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 17:15:17 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:21:28 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	sort_3(t_node *head_a)
 	if (nd1->num < nd2->num && nd2->num < nd3->num)
 		return ;
 	else if (nd1->num < nd3->num && nd2->num > nd3->num)
-		sort_132();
+		sort_132(head_a);
 	else if (nd1->num < nd2->num && nd2->num < nd3->num)
 		sa(head_a);
 	else if (nd1->num > nd2->num && nd1->num < nd3->num)
@@ -45,6 +45,6 @@ void	sort_3(t_node *head_a)
 	else if (nd1->num > nd3->num && nd2->num < nd3->num)
 		ra();
 	else
-		sort_321();
+		sort_321(head_a);
 	return ;
 }
