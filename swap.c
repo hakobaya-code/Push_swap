@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 14:10:15 by hakobaya         ###   ########.fr       */
+/*   Created: 2023/11/13 17:42:15 by hakobaya          #+#    #+#             */
+/*   Updated: 2023/11/13 18:59:23 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include "libft/libft.h"
-
-typedef struct s_node
+void	sa(t_node *head_a)
 {
-	int				num;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
+	t_node	node_top;
+	t_node	node_second;
 
-typedef struct s_stack
+	
+}
+
+void	sb(t_node *head_b)
 {
-	t_node	*head_a;
-	t_node	*head_b;
-}	t_stack;
 
-#endif
+}
+
+void	ss(t_node *head_a, t_node *head_b)
+{
+
+}

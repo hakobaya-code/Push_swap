@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 14:10:15 by hakobaya         ###   ########.fr       */
+/*   Created: 2023/12/07 14:25:36 by hakobaya          #+#    #+#             */
+/*   Updated: 2023/12/07 14:35:01 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <limits.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include "libft/libft.h"
-
-typedef struct s_node
+void	error_notdigit(void)
 {
-	int				num;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
+	ft_putstr_fd("ERROR: ARGV IS NOT DIGIT !!", 1);
+	return ;
+}
 
-typedef struct s_stack
+int	error_argc(void)
 {
-	t_node	*head_a;
-	t_node	*head_b;
-}	t_stack;
-
-#endif
+	ft_putstr_fd("ERROR:AT LEAST TWO ARGUMENTS ARE REQUIRED.", 1);
+	return (1);
+}

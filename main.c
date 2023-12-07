@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/11/12 16:00:58 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:25:15 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,26 @@
 
 int	main(int argc, char **argv)
 {
+	int		index;
+	int		*array;
+	t_node	*nd;
+	t_node	*list;
+
+	index = 0;
 	if (argc < 2)
-		return (0);
-	else
+		return (error_argc());
+	array = make_array(argv);
+	list = initialize_list();
+	while (index < argc)
 	{
-		(void)argv;
+		nd = add_list(&list, array[index]);
+		index++;
 	}
+	sort(argc - 1, list);
+	//free();
 	return (0);
 }
+
 
 __attribute__((destructor))
 static void	destructor()
