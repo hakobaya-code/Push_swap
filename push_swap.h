@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 14:10:15 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:53:33 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-typedef struct s_stack
+typedef struct s_list
 {
 	t_node	*head_a;
 	t_node	*head_b;
-}	t_stack;
+}	t_list;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 15:22:29 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:59:48 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,45 @@
 //Do nothing if there is only one or no elements.
 //ss : sa and sb at the same time.
 
-void	sort_2()
+void	sort_2(t_node *head_a)
 {
+	t_node	*nd1;
+	t_node	*nd2;
 
-	return ;
+	nd1 = head_a;
+	nd2 = head_a->next;
+	if (nd1->num < nd2->num)
+		return ;
+	else
+	{
+		sa(head_a);
+	}
 }
 
-void	sort(int arg_num, t_node *list)
+void	sort_3(t_node *head_a)
+{
+	t_node	*nd1;
+	t_node	*nd2;
+	t_node	*nd3;
+
+	nd1 = head_a;
+	nd2 = head_a->next;
+	nd3 = head_a->next->next;
+	if (nd1->num < nd2->num && nd2->num < nd3->num)
+		return ;
+	else if ()
+
+}
+
+void	sort(int arg_num, t_list *list)
 {
 	if (arg_num == 2)
 	{
-		sort_2();
+		sort_2(list->head_a);
 	}
 	else if (arg_num == 3)
 	{
-		sort_3();
+		sort_3(list->head_a);
 	}
 	else if (arg_num <= 6)
 	{
