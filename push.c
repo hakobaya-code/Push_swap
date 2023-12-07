@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:07:42 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 16:33:53 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/07 16:45:47 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	pa(t_node *head_a, t_node *head_b)
 
 	node1 = head_a;
 	node2 = head_b;
-
 	node1->next = node2;
 	node2->prev = node1;
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_node *head_a, t_node *head_b)
@@ -37,7 +37,7 @@ void	pb(t_node *head_a, t_node *head_b)
 
 	node1 = head_b;
 	node2 = head_a;
-
 	node1->next = node2;
 	node2->prev = node1;
+	ft_putstr_fd("pb\n", 1);
 }
