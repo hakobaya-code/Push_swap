@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:23:23 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/08 17:49:36 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:54:35 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,17 @@ int	*make_array(int arg_num, char **argv)
 	return (array);
 }
 
-t_node	*initialize_stack(int num)
+t_node	*initialize_list(int num)
 {
-	t_node	*stack;
+	t_node	*first_node;
 
-	stack = (t_node *)malloc(sizeof(t_node));
-	if (!stack)
+	first_node = (t_node *)malloc(sizeof(t_node));
+	if (!first_node)
 		return (NULL);
-	stack->num = num;
-	stack->next = NULL;
-	stack->prev = NULL;
-	return (stack);
+	first_node->num = num;
+	first_node->next = NULL;
+	first_node->prev = NULL;
+	return (first_node);
 }
 
 //t_node	*make_stack(t_node stack)
@@ -89,17 +89,17 @@ t_node	*last_node(t_node *node)
 	return (node);
 }
 
-void	*add_stack(t_node *stack, int num)
+void	*add_node(t_node *node, int num)
 {
 	t_node	*nd;
 	t_node	*new_nd;
 
-	if (stack == NULL)
+	if (node == NULL)
 		return (NULL);
 	new_nd = (t_node *)malloc(sizeof(t_node));
 	if (!new_nd)
 		return (NULL);
-	nd = last_node(stack);
+	nd = last_node(node);
 	new_nd->num = num;
 	nd->next = new_nd;
 	new_nd->next = NULL;

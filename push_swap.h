@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/08 17:32:13 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:54:57 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	error_notdigit(void);
 int		error_argc(void);
 int		check_argv(char **argv);
 int		*make_array(int arg_num, char **argv);
-t_node	*initialize_stack(int num);
+t_node	*initialize_list(int num);
 t_node	*last_node(t_node *node);
-void	*add_stack(t_node *stack, int num);
+void	*add_node(t_node *node, int num);
 
 
 #endif
