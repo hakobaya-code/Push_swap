@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:07:42 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 17:00:58 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:20:10 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,15 @@ void	pb(t_node *head_a, t_node *head_b)
 	nd2->prev = nd1;
 	ft_putstr_fd("pb\n", 1);
 }
+
+
+
+
+//#include <stdio.h>
+//#include <libc.h>
+
+//int	main(int argc, char **argv)
+//{
+//	t_node	*head_a;
+//	t_node
+//}

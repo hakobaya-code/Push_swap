@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/07 17:06:30 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/08 11:37:04 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ void	sort_2(t_node *head_a)
 
 
 
-void	sort(int arg_num, t_list *list)
+void	sort(int arg_num, t_stack *stack)
 {
 	if (arg_num == 2)
 	{
-		sort_2(list->head_a);
+		sort_2(stack->head_a);
 	}
 	else if (arg_num == 3)
 	{
-		sort_3(list->head_a);
+		sort_3(stack->head_a);
 	}
 	else if (arg_num <= 6)
 	{
