@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:23:23 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/08 17:06:50 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/08 17:49:36 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,14 @@ int	*make_array(int arg_num, char **argv)
 	return (array);
 }
 
-t_node	*initialize_stack(void)
+t_node	*initialize_stack(int num)
 {
 	t_node	*stack;
 
 	stack = (t_node *)malloc(sizeof(t_node));
 	if (!stack)
 		return (NULL);
-	stack->num = 0;
+	stack->num = num;
 	stack->next = NULL;
 	stack->prev = NULL;
 	return (stack);
@@ -101,8 +101,12 @@ void	*add_stack(t_node *stack, int num)
 		return (NULL);
 	nd = last_node(stack);
 	new_nd->num = num;
+	nd->next = new_nd;
 	new_nd->next = NULL;
 	new_nd->prev = nd;
-	printf("nd->num:[%d], nd->next:[%p], nd->prev:[%p],\n", new_nd->num, new_nd->next, new_nd->prev);
+	printf("💚nd:[%p]\n nd->num:[%d]\n nd->next:[%p]\n nd->prev:[%p],\n", nd, nd->num, nd->next, nd->prev);
+	printf("💛new_nd:[%p]\n new_nd->num:[%d]\n new_nd->next:[%p]\n new_nd->prev:[%p],\n", new_nd, new_nd->num, new_nd->next, new_nd->prev);
+	nd = new_nd;
+	//printf("💜nd->num:[%d]\n nd->next:[%p]\n nd->prev:[%p],\n", nd->num, nd->next, nd->prev);
 	return (NULL);
 }
