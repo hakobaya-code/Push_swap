@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:23:23 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/08 17:54:35 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:01:27 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ void	*add_node(t_node *node, int num)
 	nd->next = new_nd;
 	new_nd->next = NULL;
 	new_nd->prev = nd;
-	printf("💚nd:[%p]\n nd->num:[%d]\n nd->next:[%p]\n nd->prev:[%p],\n", nd, nd->num, nd->next, nd->prev);
-	printf("💛new_nd:[%p]\n new_nd->num:[%d]\n new_nd->next:[%p]\n new_nd->prev:[%p],\n", new_nd, new_nd->num, new_nd->next, new_nd->prev);
+	//printf("💚nd:[%p]\n nd->num:[%d]\n nd->next:[%p]\n nd->prev:[%p],\n", nd, nd->num, nd->next, nd->prev);
+	//printf("💛new_nd:[%p]\n new_nd->num:[%d]\n new_nd->next:[%p]\n new_nd->prev:[%p],\n", new_nd, new_nd->num, new_nd->next, new_nd->prev);
 	nd = new_nd;
 	//printf("💜nd->num:[%d]\n nd->next:[%p]\n nd->prev:[%p],\n", nd->num, nd->next, nd->prev);
 	return (NULL);

@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/08 17:54:44 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/08 18:00:54 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	int		index;
 	int		*array;
 	t_node	*nd;
-	t_node	*stack;
+	t_node	*list;
 
 	index = 0;
 	if (argc < 2)
@@ -27,23 +27,24 @@ int	main(int argc, char **argv)
 	printf("hello\n");
 	array = make_array(argc - 1, argv);
 	printf("main.c: 🙆‍♀️make_array done!! array:%d, %d, %d\n", array[0], array[1], array[2]);
-	stack = initialize_list(array[index]);
-	printf("initialize [%p]\n", stack);
+	list = initialize_list(array[index]);
+	printf("initialize [%p]\n", list);
 	while (index < argc - 2)
 	{
 		index++;
-		nd = add_node(stack, array[index]);
+		nd = add_node(list, array[index]);
 	}
-	printf("main.c: 🙆‍♀️add_stack done.\n");
+	printf("main.c: 🙆‍♀️add_node done.\n");
+	free(array);
+	printf("free array\n");
 	while (1)
 	{
-		if (stack == NULL)
+		if (list == NULL)
 			exit(0);
-		printf("%d\n", stack->num);
-		stack = stack->next;
+		printf("check node *** node [%p], num [%d], prev [%p], next[%p]\n", list, list->num, list->prev, list->next);
+		list = list->next;
 	}
-
-	//sort(argc - 1, stack);
+	//sort(argc - 1, list);
 	//free();
 	return (0);
 }
