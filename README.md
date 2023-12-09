@@ -1,3 +1,5 @@
 12/8 add_nodeまで
+12/9 atoiとエラーチェック
 
-atoiで途中に変なのあった時freeするorチェック関数で先にはじく
+cc main.c node.c error.c array.c -Llibft -l ft
+Makefile変更する

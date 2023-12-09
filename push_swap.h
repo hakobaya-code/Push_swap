@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/09 14:56:00 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:13:27 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ t_node	*last_node(t_node *node);
 void	*add_node(t_node *node, int num);
 void	error_overint(void);
 
+// swap
+t_node	*sa(t_node *head_a);
+t_node	*sb(t_node *head_b);
+void	ss(t_node *head_a, t_node *head_b);
 
 #endif

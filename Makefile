@@ -3,11 +3,11 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 PUSH_SWAP = push_swap
-PUSH_SWAP_SRCS = push_swap.C
-PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:,c=.o)
+PUSH_SWAP_SRCS = main.c error.c array.c node.c
+PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
-LIBFT_DIR = libft
+LIBFT_DIR = ./libft
 INCLUDE = -I $(LIBFT_DIR)
 
 all : $(NAME)
