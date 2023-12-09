@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/08 17:54:57 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/09 14:56:00 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,12 @@ typedef struct s_stack
 
 void	error_notdigit(void);
 int		error_argc(void);
-int		check_argv(char **argv);
+int		check_argv(int argc, char **argv);
 int		*make_array(int arg_num, char **argv);
 t_node	*initialize_list(int num);
 t_node	*last_node(t_node *node);
 void	*add_node(t_node *node, int num);
+void	error_overint(void);
 
 
 #endif
