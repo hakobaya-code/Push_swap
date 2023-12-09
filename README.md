@@ -3,3 +3,4 @@
 
 cc main.c node.c error.c array.c -Llibft -l ft
 Makefile変更する
+rotateのエラー変更する

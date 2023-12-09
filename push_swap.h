@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/09 17:13:27 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:20:30 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,11 @@ void	error_overint(void);
 t_node	*sa(t_node *head_a);
 t_node	*sb(t_node *head_b);
 void	ss(t_node *head_a, t_node *head_b);
+
+// rotate
+t_node	*ra(t_node *head_a);
+t_node	*rb(t_node *head_b);
+void	rr(t_node *head_a, t_node *head_b);
+void	rra(t_node *head_a);
 
 #endif
