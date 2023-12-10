@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/09 17:19:00 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:24:02 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
 	printf("list head %p, prev %p, next %p, num %d\n", list, list->prev, list->next, list->num);
-	list = ra(list);
+	list = rra(list);
 	printf("list head %p, prev %p, next %p, num %d\n", list, list->prev, list->next, list->num);
 	while (1)
 	{
@@ -56,5 +56,5 @@ int	main(int argc, char **argv)
 __attribute__((destructor))
 static void	destructor()
 {
-	system("\n\nleaks -q push_swap");
+	system("\n\nleaks -q a.out");
 }

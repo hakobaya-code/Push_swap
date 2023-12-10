@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/09 17:20:30 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/10 17:26:43 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	ss(t_node *head_a, t_node *head_b);
 t_node	*ra(t_node *head_a);
 t_node	*rb(t_node *head_b);
 void	rr(t_node *head_a, t_node *head_b);
-void	rra(t_node *head_a);
+t_node	*rra(t_node *head_a);
+t_node	*rrb(t_node *head_b);
+void	rrr(t_node *head_a, t_node *head_b);
 
 #endif

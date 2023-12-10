@@ -2,22 +2,19 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-PUSH_SWAP = push_swap
-PUSH_SWAP_SRCS = main.c error.c array.c node.c
+PUSH_SWAP_SRCS = main.c error.c array.c node.c swap.c rotate.c sort.c sort3.c sort_u6.c
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
 LIBFT_DIR = ./libft
+LIBFT_A = ./libft/libft.a
 INCLUDE = -I $(LIBFT_DIR)
 
 all : $(NAME)
 
-$(NAME) :
+$(NAME) : $(PUSH_SWAP_OBJS)
 	make -C $(LIBFT_DIR)
-	make $(PUSH_SWAP)
-
-$(PUSH_SWAP) : $(PUSH_SWAP_OBJS)
-	$(CC) $(CFLAGS) $(INCLUDE) -L $(LIBFT_DIR) -l ft -o $@ $<
+	$(CC) $(CFLAGS) $(INCLUDE) -L $(LIBFT_DIR) -l ft -o $@ $^
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -27,6 +24,7 @@ clean :
 	$(RM) $(PUSH_SWAP_OBJS)
 
 fclean : clean
-	$(RM) $(PUSH_SWAP)
+	$(RM) $(LIBFT_A)
+	$(RM) $(NAME)
 
 re : fclean all
