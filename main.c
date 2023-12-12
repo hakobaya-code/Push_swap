@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 17:03:37 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:13:22 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	main(int argc, char **argv)
 	index = 0;
 	if (argc < 2)
 		return (error_argc());
-	printf("hello\n");
 	array = make_array(argc - 1, argv);
 	stack = make_stack(array);
 	printf("initialize stack_a [%p]\n", stack->head_a);
@@ -53,16 +52,19 @@ int	main(int argc, char **argv)
 	}
 	printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
-	printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
-	sa(stack);
-	sb(stack);
-	rra(stack);
-	rrb(stack);
-	rr(stack);
-	pb(stack);
-	pa(stack);
+	printf("NODE: 🙆‍♀️try swap.\n");
+	//printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
+	//sa(stack);
+	//sb(stack);
+	//rra(stack);
+	//rrb(stack);
+	//rr(stack);
+	//pb(stack);
+	//pa(stack);
 	//printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
 	//printf("main: head_b %p, prev %p, next %p, num %d\n", stack->head_b, stack->head_b->prev, stack->head_b->next, stack->head_b->num);
+	printf("💛sort start\n");
+	sort(argc - 1, stack);
 	while (1)
 	{
 		if (stack->head_a == NULL)
@@ -79,7 +81,6 @@ int	main(int argc, char **argv)
 	}
 	//printf("💜end node\n");
 	//printf("💛end swap\n");
-	//sort(argc - 1, stack);
 	//free();
 	return (0);
 }
