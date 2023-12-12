@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 17:28:09 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:31:53 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,12 @@ void	sort(int arg_num, t_stack *stack)
 	{
 		sort_2(stack);
 	}
-	printf("💜after sotr_2\n");
-	//else (arg_num == 3)
-	//{
-	//	sort_3(stack);
-	//}
-	//else if (arg_num <= 6)
-	//{
-	//	//なんか処理する
-	//}
-	//else
-	//{
-	//	//なんか処理する
-	//}
+	else if (arg_num == 3)
+	{
+		sort_3(stack);
+	}
+	else
+	{
+		printf("sore_under_6\n");
+	}
 }

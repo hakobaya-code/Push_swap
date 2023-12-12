@@ -6,45 +6,47 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:06:05 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/10 17:15:03 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 18:01:36 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//void	sort_132(t_node *head_a)
-//{
-//	rra();
-//	sa();
-//	return ;
-//}
+void	sort_132(t_stack *stack)
+{
+	rra(stack);
+	sa(stack);
+	return ;
+}
 
-//void	sort_321(t_node *head_a)
-//{
-//	ra();
-//	sa();
-//}
+void	sort_321(t_stack *stack)
+{
+	ra(stack);
+	sa(stack);
+}
 
-//void	sort_3(t_node *head_a)
-//{
-//	t_node	*nd1;
-//	t_node	*nd2;
-//	t_node	*nd3;
+void	sort_3(t_stack *stack)
+{
+	t_node	*nd;
+	int		num1;
+	int		num2;
+	int		num3;
 
-//	nd1 = head_a;
-//	nd2 = head_a->next;
-//	nd3 = head_a->next->next;
-//	if (nd1->num < nd2->num && nd2->num < nd3->num)
-//		return ;
-//	else if (nd1->num < nd3->num && nd2->num > nd3->num)
-//		sort_132(head_a);
-//	else if (nd1->num < nd2->num && nd2->num < nd3->num)
-//		sa(head_a);
-//	else if (nd1->num > nd2->num && nd1->num < nd3->num)
-//		rra(head_a);
-//	else if (nd1->num > nd3->num && nd2->num < nd3->num)
-//		ra();
-//	else
-//		sort_321(head_a);
-//	return ;
-//}
+	nd = stack->head_a->next;
+	num1 = nd->prev->num;
+	num2 = nd->num;
+	num3 = nd->next->num;
+	if (num1 < num2 && num2 < num3)
+		return ;
+	else if (num1 < num3 && num2 > num3)
+		sort_132(stack);
+	else if (num2 < num3 && num1 > num3)
+		sa(stack);
+	else if (num1 < num2 && num1 > num3)
+		rra(stack);
+	else if (num1 > num2 && num2 < num3)
+		ra(stack);
+	else
+		sort_321(stack);
+	return ;
+}
