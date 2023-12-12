@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:07:42 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 16:22:24 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:45:32 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	pa(t_stack *stack, t_node *head_a, t_node *head_b)
 		stack->head_b = nd2->next;
 		nd2->next->prev = NULL;
 	}
+	else
+		stack->head_b = NULL;
 	if (head_a != NULL)
 	{
 		nd1->prev = nd2;
@@ -58,6 +60,8 @@ void	pb(t_stack *stack, t_node *head_a, t_node *head_b)
 		stack->head_a = nd1->next;
 		nd1->next->prev = NULL;
 	}
+	else
+		stack->head_a = NULL;
 	if (head_b != NULL)
 	{
 		nd2->prev = nd1;
