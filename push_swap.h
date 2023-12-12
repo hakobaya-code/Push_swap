@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/10 18:44:49 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:58:24 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	rrb(t_stack *stack, t_node *head_b);
 void	rrr(t_stack *stack, t_node *head_a, t_node *head_b);
 
 // push
-void	pa(t_node *head_a, t_node *head_b);
+void	pa(t_stack *stack, t_node *head_a, t_node *head_b);
+void	pb(t_stack *stack, t_node *head_a, t_node *head_b);
 
 #endif

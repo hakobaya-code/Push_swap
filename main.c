@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 15:33:05 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:20:36 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ t_stack	*make_stack(int	*array)
 	if (!stack)
 		exit(1);
 	stack_a = initialize_list(array[0]);
-	stack_b = initialize_stackb();
+	//stack_b = initialize_stackb();
+	stack_b = NULL;
 	stack->head_a = stack_a;
 	stack->head_b = stack_b;
 	return (stack);
@@ -58,8 +59,11 @@ int	main(int argc, char **argv)
 	//rra(stack, stack->head_a);
 	//rrb(stack, stack->head_b);
 	//rr(stack, stack->head_a, stack->head_b);
+	pb(stack, stack->head_a, stack->head_b);
+	pb(stack, stack->head_a, stack->head_b);
+	pa(stack, stack->head_a, stack->head_b);
 	printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
-	printf("main: head_b %p, prev %p, next %p, num %d\n", stack->head_b, stack->head_b->prev, stack->head_b->next, stack->head_b->num);
+	//printf("main: head_b %p, prev %p, next %p, num %d\n", stack->head_b, stack->head_b->prev, stack->head_b->next, stack->head_b->num);
 	while (1)
 	{
 		if (stack->head_a == NULL)
