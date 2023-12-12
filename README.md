@@ -1,6 +1,5 @@
 12/8 add_nodeまで
 12/9 atoiとエラーチェック
+12/10 Makefile直った、swap, rotateを返り値なしで直し中、どこか変なまま
 
-cc main.c node.c error.c array.c -Llibft -l ft
-Makefile変更する
-rotateのエラー変更する
+pushどうにかする、swap rotateどれかがおかしい
