@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:07:42 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 16:45:32 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:02:31 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 //Do nothing if a is empty.
 
 
-void	pa(t_stack *stack, t_node *head_a, t_node *head_b)
+void	pa(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;
 
-	if (head_b == NULL)
+	if (stack->head_b == NULL)
 		return ;
-	nd1 = head_a;
-	nd2 = head_b;
+	nd1 = stack->head_a;
+	nd2 = stack->head_b;
 	if (nd2->next != NULL)
 	{
 		stack->head_b = nd2->next;
@@ -35,7 +35,7 @@ void	pa(t_stack *stack, t_node *head_a, t_node *head_b)
 	}
 	else
 		stack->head_b = NULL;
-	if (head_a != NULL)
+	if (stack->head_a != NULL)
 	{
 		nd1->prev = nd2;
 		nd2->next = nd1;
@@ -46,15 +46,15 @@ void	pa(t_stack *stack, t_node *head_a, t_node *head_b)
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_stack *stack, t_node *head_a, t_node *head_b)
+void	pb(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;
 
-	if (head_a == NULL)
+	if (stack->head_a == NULL)
 		return ;
-	nd1 = head_a;
-	nd2 = head_b;
+	nd1 = stack->head_a;
+	nd2 = stack->head_b;
 	if (nd1->next != NULL)
 	{
 		stack->head_a = nd1->next;
@@ -62,7 +62,7 @@ void	pb(t_stack *stack, t_node *head_a, t_node *head_b)
 	}
 	else
 		stack->head_a = NULL;
-	if (head_b != NULL)
+	if (stack->head_b != NULL)
 	{
 		nd2->prev = nd1;
 		nd1->next = nd2;

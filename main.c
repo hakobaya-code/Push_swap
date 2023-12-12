@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 16:45:55 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:03:37 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ int	main(int argc, char **argv)
 	printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
 	printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
-	//sa(stack, stack->head_a);
-	//sb(stack, stack->head_b);
-	//rra(stack, stack->head_a);
-	//rrb(stack, stack->head_b);
-	//rr(stack, stack->head_a, stack->head_b);
-	//pb(stack, stack->head_a, stack->head_b);
-	//pa(stack, stack->head_a, stack->head_b);
+	sa(stack);
+	sb(stack);
+	rra(stack);
+	rrb(stack);
+	rr(stack);
+	pb(stack);
+	pa(stack);
 	//printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
 	//printf("main: head_b %p, prev %p, next %p, num %d\n", stack->head_b, stack->head_b->prev, stack->head_b->next, stack->head_b->num);
 	while (1)
@@ -77,9 +77,9 @@ int	main(int argc, char **argv)
 		printf("🎁check node stack_b *** node [%p], num [%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->prev, stack->head_b->next);
 		stack->head_b = stack->head_b->next;
 	}
-	printf("💜end node\n");
-	printf("💛end swap\n");
-	//sort(argc - 1, list);
+	//printf("💜end node\n");
+	//printf("💛end swap\n");
+	//sort(argc - 1, stack);
 	//free();
 	return (0);
 }

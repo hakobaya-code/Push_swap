@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 15:58:24 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:59:35 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,20 +46,23 @@ void	*add_node(t_node *node, int num);
 void	error_overint(void);
 
 // swap
-void	sa(t_stack *stack, t_node *head_a);
-void	sb(t_stack *stack, t_node *head_b);
-void	ss(t_stack *stack, t_node *head_a, t_node *head_b);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack);
 
 // rotate
-void	ra(t_stack *stack, t_node *head_a);
-void	rb(t_stack *stack, t_node *head_b);
-void	rr(t_stack *stack, t_node *head_a, t_node *head_b);
-void	rra(t_stack *stack, t_node *head_a);
-void	rrb(t_stack *stack, t_node *head_b);
-void	rrr(t_stack *stack, t_node *head_a, t_node *head_b);
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack);
 
 // push
-void	pa(t_stack *stack, t_node *head_a, t_node *head_b);
-void	pb(t_stack *stack, t_node *head_a, t_node *head_b);
+void	pa(t_stack *stack);
+void	pb(t_stack *stack);
+
+//sort
+void	sort(int arg_num, t_stack *stack);
 
 #endif

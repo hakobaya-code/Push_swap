@@ -6,22 +6,22 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 17:27:51 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/10 18:45:30 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 17:00:16 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(t_stack *stack, t_node *head_a, t_node *head_b)
+void	rr(t_stack *stack)
 {
-	ra(stack, head_a);
-	rb(stack, head_b);
+	ra(stack);
+	rb(stack);
 	ft_putstr_fd("rr\n", 1);
 }
 
-void	rrr(t_stack *stack, t_node *head_a, t_node *head_b)
+void	rrr(t_stack *stack)
 {
-	ra(stack, head_a);
-	rb(stack, head_b);
+	ra(stack);
+	rb(stack);
 	ft_putstr_fd("rrr\n", 1);
 }

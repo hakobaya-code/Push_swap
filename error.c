@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:25:36 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/09 15:51:06 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:52:31 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ int	error_argc(void)
 void	error_overint(void)
 {
 	ft_putstr_fd("🚨ERROR🚨: ARGV IS OVER INT\n", 1);
+	exit(1);
+}
+void	error_sortnum(void)
+{
+	ft_putstr_fd("🚨ERROR🚨: SORT NUMBER IS NOT CORRECT\n", 1);
 	exit(1);
 }
