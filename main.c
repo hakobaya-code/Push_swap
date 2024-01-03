@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/03 23:46:45 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 00:01:54 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int	main(int argc, char **argv)
 }
 
 
-__attribute__((destructor))
-static void	destructor()
-{
-	system("\n\nleaks -q push_swap");
-}
+//__attribute__((destructor))
+//static void	destructor()
+//{
+//	system("\n\nleaks -q push_swap");
+//}
