@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: haruka <haruka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:06:05 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 18:01:36 by hakobaya         ###   ########.fr       */
+/*   Updated: 2023/12/13 18:55:45 by haruka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ void	sort_3(t_stack *stack)
 	num1 = nd->prev->num;
 	num2 = nd->num;
 	num3 = nd->next->num;
-	if (num1 < num2 && num2 < num3)
+	if (num1 < num2 && num2 < num3) // 123
 		return ;
-	else if (num1 < num3 && num2 > num3)
+	else if (num1 < num3 && num2 > num3) // 132
 		sort_132(stack);
-	else if (num2 < num3 && num1 > num3)
+	else if (num2 < num1 && num1 < num3) // 213
 		sa(stack);
-	else if (num1 < num2 && num1 > num3)
+	else if (num1 < num2 && num1 > num3) // 231
 		rra(stack);
-	else if (num1 > num2 && num2 < num3)
+	else if (num1 > num2 && num2 < num3) // 312
 		ra(stack);
 	else
-		sort_321(stack);
+		sort_321(stack); // 321
 	return ;
 }
