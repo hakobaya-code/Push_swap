@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 17:13:22 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/03 23:46:45 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (error_argc());
 	array = make_array(argc - 1, argv);
+	array = compaction(array, argc - 1);
 	stack = make_stack(array);
 	printf("initialize stack_a [%p]\n", stack->head_a);
 	printf("initialize stack_b [%p]\n", stack->head_b);
