@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 17:25:49 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:08:20 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ typedef struct s_stack
 
 void	error_notdigit(void);
 int		error_argc(void);
+void	error_overint(void);
+void	error_same_num(int *array);
 int		check_argv(int argc, char **argv);
 int		*make_array(int arg_num, char **argv);
 t_node	*initialize_list(int num);
 t_node	*initialize_stackb(void);
 t_node	*last_node(t_node *node);
 void	*add_node(t_node *node, int num);
-void	error_overint(void);
 int		*compaction(int *array, int len, t_node *node);
 
 // swap

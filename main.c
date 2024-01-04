@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 17:07:09 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:40:04 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,6 @@ int	main(int argc, char **argv)
 	printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
 	printf("NODE: 🙆‍♀️try swap.\n");
-	//printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
-	//sa(stack);
-	//sb(stack);
-	//rra(stack);
-	//rrb(stack);
-	//rr(stack);
-	//pb(stack);
-	//pa(stack);
-	//printf("main: head_a %p, prev %p, next %p, num %d\n", stack->head_a, stack->head_a->prev, stack->head_a->next, stack->head_a->num);
-	//printf("main: head_b %p, prev %p, next %p, num %d\n", stack->head_b, stack->head_b->prev, stack->head_b->next, stack->head_b->num);
 	printf("💛sort start\n");
 	sort(argc - 1, stack);
 	while (1)

@@ -6,11 +6,32 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:55:32 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/09 15:58:45 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:08:56 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_same_num(int *array, int arg_num)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < arg_num - 1)
+	{
+		j = i + 1;
+		while (j < arg_num)
+		{
+			if (array[i] == array[j])
+				error_same_num(array);
+			j++;
+		}
+		i++;
+	}
+	return ;
+}
 
 void	check_argv_all(char **argv, int i, long num)
 {
@@ -70,5 +91,6 @@ int	*make_array(int arg_num, char **argv)
 		//printf("array[%d]:%d\n", i + 1, array[i]);
 		i++;
 	}
+	check_same_num(array, arg_num);
 	return (array);
 }

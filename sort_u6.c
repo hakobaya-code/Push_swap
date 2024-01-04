@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:25:04 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 18:36:00 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 18:38:11 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	to_top_and_push(int arg_num, int pos, t_stack *stack)
 	int	i;
 
 	i = 0;
-	printf("🌟arg_num[%d]\n", arg_num);
+	//printf("🌟arg_num[%d]\n", arg_num);
 	if (arg_num - pos >= pos)
 	{
 		while (i < pos)
@@ -80,23 +80,19 @@ void	sort_u6(int arg_num, t_stack *stack)
 	int		pos;
 	int		count;
 
-	printf("enter sort_u6\n");
 	min_node = stack->head_a;
 	nd = stack->head_a;
 	pos = 0;
 	count = 0;
 	while (arg_num - 3 > 0)
 	{
-		printf("😆arg_num[%d]\n", arg_num);
+		//printf("😆arg_num[%d]\n", arg_num);
 		min_node = find_min_node(stack);
 		pos = node_position(stack, min_node);
-		printf("min_node_num[%d] pos[%d]\n", min_node->num, pos);
+		//printf("min_node_num[%d] pos[%d]\n", min_node->num, pos);
 		to_top_and_push(arg_num, pos, stack);
 		count++;
 		arg_num--;
-		printf("💭check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
-		if (stack->head_b != NULL)
-			printf("💭check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 	}
 	sort_3(stack);
 	while (count > 0)
@@ -104,8 +100,8 @@ void	sort_u6(int arg_num, t_stack *stack)
 		pa(stack);
 		count--;
 	}
-	printf("💓check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
-	if (stack->head_b != NULL)
-		printf("💓check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
+	//printf("💓check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
+	//if (stack->head_b != NULL)
+	//	printf("💓check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 	return ;
 }
