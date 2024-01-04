@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 19:08:20 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 22:11:44 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,16 @@ t_node	*last_node(t_node *node);
 void	*add_node(t_node *node, int num);
 int		*compaction(int *array, int len, t_node *node);
 
+// util
+t_node	*last_nd(t_stack *stack);
+void	top_push(int arg_num, int pos, t_stack *stack);
+int		node_position(t_stack *stack, t_node *node);
+t_node	*find_min_node(t_stack *stack);
+int		calc_min(t_stack *stack);
+int		calc_second_min(t_stack *stack, int min);
+
+// sort
+
 // swap
 void	sa(t_stack *stack);
 void	sb(t_stack *stack);
@@ -68,8 +78,14 @@ void	pb(t_stack *stack);
 //sort
 void	sort(int arg_num, t_stack *stack);
 void	sort_2(t_stack *stack);
+void	sort_2b(t_stack *stack);
 void	sort_3(t_stack *stack);
+void	sort_3b(t_stack *stack);
+void	sort_4(int arg_num, t_stack *stack);
+void	sort_5(int arg_num, t_stack *stack);
+void	sort_5_2(t_stack *stack, int min, int min2);
 void	sort_u6(int arg_num, t_stack *stack);
+void	sort_6(int arg_num, t_stack *stack);
 
 
 #endif

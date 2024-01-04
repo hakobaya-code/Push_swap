@@ -6,73 +6,92 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:25:04 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 19:52:53 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 22:08:38 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	to_top_and_push(int arg_num, int pos, t_stack *stack)
+void	sort_4(int arg_num, t_stack *stack)
 {
-	int	i;
+	t_node	*min_node;
+	int		pos;
 
-	i = 0;
-	printf("🌟pos[%d]\n", pos);
-	if (arg_num - pos >= pos)
-	{
-		while (i < pos)
-		{
-			while (i < pos)
-			{
-				ra(stack);
-				i++;
-			}
-		}
-	}
-	else
-	{
-		while (i < arg_num - pos)
-		{
-			rra(stack);
-			i++;
-		}
-	}
-	pb(stack);
+	min_node = find_min_node(stack);
+	pos = node_position(stack, min_node);
+	top_push(4, pos, stack);
+	sort_3(stack);
+	if (arg_num == 5)
+		sort_2b(stack);
+	else if (arg_num == 6)
+		sort_3b(stack);
+	pa(stack);
 	return ;
 }
 
-
-int	node_position(t_stack *stack, t_node *node)
-{
-	int		pos;
-	t_node	*rel_nd;
-
-	pos = 0;
-	rel_nd = stack->head_a;
-	while (rel_nd != node && rel_nd->next != NULL)
-	{
-		rel_nd = rel_nd->next;
-		pos++;
-	}
-	return (pos);
-}
-
-t_node	*find_min_node(t_stack *stack)
+void	sort_5_2(t_stack *stack, int min, int min2)
 {
 	t_node	*nd;
-	t_node	*min_nd;
+	t_node	*ld;
 
 	nd = stack->head_a;
-	min_nd = stack->head_a;
-	while (nd->next != NULL)
+	ld = last_nd(stack);
+	if (nd->next->rank == min || nd->next->rank == min2)
+		ra(stack);
+	else if (nd->next->next->rank == min || nd->next->next->rank == min2)
 	{
-		printf("nd->rank[%d] ndnext->rank[%d]\n", nd->rank, nd->next->rank);
-		//printf("nd->rank[%d] min_nd->rank[%d]\n", nd->rank, min_nd->rank);
-		if (min_nd->rank > nd->next->rank)
-			min_nd = nd->next;
-		nd = nd->next;
+		ra(stack);
+		ra(stack);
 	}
-	return (min_nd);
+	else if (ld->rank == min || ld->rank == min2)
+		rra(stack);
+	else if (ld->prev->rank == min || ld->prev->rank == min2)
+	{
+		rra(stack);
+		rra(stack);
+	}
+	return ;
+}
+
+void	sort_5(int arg_num, t_stack *stack)
+{
+	int		min;
+	int		min2;
+
+	min = calc_min(stack);
+	min2 = calc_second_min(stack, min);
+	sort_5_2(stack, min, min2);
+	pb(stack);
+	sort_4(arg_num, stack);
+	pa(stack);
+	return ;
+}
+
+void	sort_6(int arg_num, t_stack *stack)
+{
+	t_node	*nd;
+	t_node	*ld;
+
+	nd = stack->head_a->next;
+	ld = last_nd(stack);
+	if (nd->rank == 0 || nd->rank == 1 || nd->rank == 2)
+		ra(stack);
+	else if (nd->next->rank == 0 || nd->next->rank == 1 || nd->next->rank == 2)
+	{
+		ra(stack);
+		ra(stack);
+	}
+	else if (ld->rank == 0 || ld->rank == 1 || ld->rank == 2)
+		rra(stack);
+	else if (ld->prev->rank == 0 || ld->prev->rank == 1 || ld->prev->rank == 2)
+	{
+		rra(stack);
+		rra(stack);
+	}
+	pb(stack);
+	sort_5(arg_num, stack);
+	pa(stack);
+	return ;
 }
 
 void	sort_u6(int arg_num, t_stack *stack)
@@ -82,27 +101,22 @@ void	sort_u6(int arg_num, t_stack *stack)
 	int		pos;
 	int		count;
 
+	printf("①enter sort_u6\n");
 	min_node = stack->head_a;
 	nd = stack->head_a;
 	pos = 0;
 	count = 0;
-	while (arg_num - 3 > 0)
-	{
-		min_node = find_min_node(stack);
-		pos = node_position(stack, min_node);
-		printf("min_node_num[%d] min_node_rank[%d] pos[%d]\n", min_node->num, min_node->rank, pos);
-		to_top_and_push(arg_num, pos, stack);
-		count++;
-		arg_num--;
-	}
-	sort_3(stack);
-	while (count > 0)
-	{
-		pa(stack);
-		count--;
-	}
+	printf("②enter sort_u6\n");
+	printf("arg_num[%d]\n", arg_num);
+	if (arg_num == 4)
+		sort_4(4, stack);
+	else if (arg_num == 5)
+		sort_5(5, stack);
+	else if (arg_num == 6)
+		sort_6(6, stack);
+	return ;
+}
+
 	//printf("💓check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
 	//if (stack->head_b != NULL)
 	//	printf("💓check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
-	return ;
-}
