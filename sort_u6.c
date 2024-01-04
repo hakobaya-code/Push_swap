@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:25:04 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 18:38:11 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 19:52:53 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	to_top_and_push(int arg_num, int pos, t_stack *stack)
 	int	i;
 
 	i = 0;
-	//printf("🌟arg_num[%d]\n", arg_num);
+	printf("🌟pos[%d]\n", pos);
 	if (arg_num - pos >= pos)
 	{
 		while (i < pos)
@@ -66,7 +66,9 @@ t_node	*find_min_node(t_stack *stack)
 	min_nd = stack->head_a;
 	while (nd->next != NULL)
 	{
-		if (nd->rank > nd->next->rank)
+		printf("nd->rank[%d] ndnext->rank[%d]\n", nd->rank, nd->next->rank);
+		//printf("nd->rank[%d] min_nd->rank[%d]\n", nd->rank, min_nd->rank);
+		if (min_nd->rank > nd->next->rank)
 			min_nd = nd->next;
 		nd = nd->next;
 	}
@@ -86,10 +88,9 @@ void	sort_u6(int arg_num, t_stack *stack)
 	count = 0;
 	while (arg_num - 3 > 0)
 	{
-		//printf("😆arg_num[%d]\n", arg_num);
 		min_node = find_min_node(stack);
 		pos = node_position(stack, min_node);
-		//printf("min_node_num[%d] pos[%d]\n", min_node->num, pos);
+		printf("min_node_num[%d] min_node_rank[%d] pos[%d]\n", min_node->num, min_node->rank, pos);
 		to_top_and_push(arg_num, pos, stack);
 		count++;
 		arg_num--;
