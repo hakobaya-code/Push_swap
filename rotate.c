@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:02 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 17:06:25 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:17:43 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ra(t_stack *stack)
 	t_node	*nd1;
 	t_node	*nd2;
 
-	if (stack->head_b == NULL || stack->head_a->next == NULL)
+	if (stack->head_a == NULL || stack->head_a->next == NULL)
 		return ;
 	nd1 = stack->head_a;
 	nd2 = list_last(stack->head_a);

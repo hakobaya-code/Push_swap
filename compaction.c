@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 23:34:21 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/03 23:56:15 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:03:49 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	*ft_memmove2(int *dst, int *src, int len)
 	return (dst);
 }
 
-int	*compaction(int *array, int len)
+int	*compaction(int *array, int len, t_node *node)
 {
 	int	i;
 	int	j;
@@ -71,15 +71,15 @@ int	*compaction(int *array, int len)
 	while (i < len)
 	{
 		j = 0;
-		array[i] = 0;
 		while (j < len)
 		{
 			if (copy[i] > copy[j])
-				array[i]++;
+				node->rank++;
 			j++;
 		}
-		//printf("list[%d] compact[%d]\n", copy[i], array[i]);
+		printf("list[%d] compact[%d]\n", copy[i], node->rank);
 		i++;
+		node = node->next;
 	}
 	return (array);
 }

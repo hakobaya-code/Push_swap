@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:23:23 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/10 17:55:20 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:05:43 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_node	*initialize_list(int num)
 	first_node->num = num;
 	first_node->next = NULL;
 	first_node->prev = NULL;
+	first_node->rank = 0;
 	return (first_node);
 }
 
@@ -35,6 +36,7 @@ t_node	*initialize_stackb(void)
 	first_node->num = (int)NULL;
 	first_node->next = NULL;
 	first_node->prev = NULL;
+	first_node->rank = (int)NULL;
 	return (first_node);
 }
 t_node	*last_node(t_node *node)
@@ -58,6 +60,7 @@ void	*add_node(t_node *node, int num)
 		return (NULL);
 	nd = last_node(node);
 	new_nd->num = num;
+	new_nd->rank = 0;
 	nd->next = new_nd;
 	new_nd->next = NULL;
 	new_nd->prev = nd;

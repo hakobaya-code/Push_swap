@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/03 23:47:31 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:03:01 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_node
 {
 	int				num;
+	int				rank;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -44,7 +45,7 @@ t_node	*initialize_stackb(void);
 t_node	*last_node(t_node *node);
 void	*add_node(t_node *node, int num);
 void	error_overint(void);
-int		*compaction(int *array, int len);
+int		*compaction(int *array, int len, t_node *node);
 
 // swap
 void	sa(t_stack *stack);

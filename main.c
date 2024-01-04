@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 00:01:54 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:07:09 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (error_argc());
 	array = make_array(argc - 1, argv);
-	array = compaction(array, argc - 1);
 	stack = make_stack(array);
 	printf("initialize stack_a [%p]\n", stack->head_a);
 	printf("initialize stack_b [%p]\n", stack->head_b);
@@ -51,6 +50,7 @@ int	main(int argc, char **argv)
 		index++;
 		nd = add_node(stack->head_a, array[index]);
 	}
+	array = compaction(array, argc - 1, stack->head_a);
 	printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
 	printf("NODE: 🙆‍♀️try swap.\n");
@@ -70,14 +70,14 @@ int	main(int argc, char **argv)
 	{
 		if (stack->head_a == NULL)
 			break ;
-		printf("🎁check node stack_a *** node [%p], num [%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->prev, stack->head_a->next);
+		printf("🎁check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
 		stack->head_a = stack->head_a->next;
 	}
 	while (1)
 	{
 		if (stack->head_b == NULL)
 			break ;
-		printf("🎁check node stack_b *** node [%p], num [%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->prev, stack->head_b->next);
+		printf("🎁check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 		stack->head_b = stack->head_b->next;
 	}
 	//printf("💜end node\n");
