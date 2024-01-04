@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:06:05 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 17:18:57 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:19:51 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void	sort_132(t_stack *stack)
 
 void	sort_321(t_stack *stack)
 {
-	//sa(stack);
-	//rra(stack);
 	ra(stack);
-	//sa(stack);
+	sa(stack);
 }
 
 void	sort_3(t_stack *stack)
