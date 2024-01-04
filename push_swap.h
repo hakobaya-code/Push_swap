@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 17:03:01 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:25:49 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	pb(t_stack *stack);
 void	sort(int arg_num, t_stack *stack);
 void	sort_2(t_stack *stack);
 void	sort_3(t_stack *stack);
+void	sort_u6(int arg_num, t_stack *stack);
 
 
 #endif

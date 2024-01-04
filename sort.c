@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 16:49:33 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:26:47 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	sort(int arg_num, t_stack *stack)
 	{
 		sort_3(stack);
 	}
-	else
+	else if (arg_num <= 6)
 	{
-		printf("sort_under_6\n");
+		sort_u6(arg_num, stack);
 	}
 }
