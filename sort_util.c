@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:06:09 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 22:08:05 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/04 22:13:36 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	top_push(int arg_num, int pos, t_stack *stack)
 	pb(stack);
 	return ;
 }
-
 
 int	node_position(t_stack *stack, t_node *node)
 {
