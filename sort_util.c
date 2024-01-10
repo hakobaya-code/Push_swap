@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:06:09 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 22:13:36 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:12:05 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ t_node	*last_nd(t_stack *stack)
 	return (nd);
 }
 
+t_node	*last_nd_b(t_stack *stack)
+{
+	t_node	*nd;
+
+	nd = stack->head_b;
+	while (nd->next != NULL)
+		nd = nd->next;
+	return (nd);
+}
 void	top_push(int arg_num, int pos, t_stack *stack)
 {
 	int	i;
@@ -50,6 +59,33 @@ void	top_push(int arg_num, int pos, t_stack *stack)
 	return ;
 }
 
+void	top_push_b(int arg_num, int pos, t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	if (arg_num - pos >= pos)
+	{
+		while (i < pos)
+		{
+			while (i < pos)
+			{
+				rb(stack);
+				i++;
+			}
+		}
+	}
+	else
+	{
+		while (i < arg_num - pos)
+		{
+			rrb(stack);
+			i++;
+		}
+	}
+	pa(stack);
+	return ;
+}
 int	node_position(t_stack *stack, t_node *node)
 {
 	int		pos;
@@ -57,6 +93,21 @@ int	node_position(t_stack *stack, t_node *node)
 
 	pos = 0;
 	rel_nd = stack->head_a;
+	while (rel_nd != node && rel_nd->next != NULL)
+	{
+		rel_nd = rel_nd->next;
+		pos++;
+	}
+	return (pos);
+}
+
+int	node_position_b(t_stack *stack, t_node *node)
+{
+	int		pos;
+	t_node	*rel_nd;
+
+	pos = 0;
+	rel_nd = stack->head_b;
 	while (rel_nd != node && rel_nd->next != NULL)
 	{
 		rel_nd = rel_nd->next;
@@ -81,3 +132,18 @@ t_node	*find_min_node(t_stack *stack)
 	return (min_nd);
 }
 
+t_node	*find_min_node_b(t_stack *stack)
+{
+	t_node	*nd;
+	t_node	*min_nd;
+
+	nd = stack->head_b;
+	min_nd = stack->head_b;
+	while (nd->next != NULL)
+	{
+		if (min_nd->rank > nd->next->rank)
+			min_nd = nd->next;
+		nd = nd->next;
+	}
+	return (min_nd);
+}

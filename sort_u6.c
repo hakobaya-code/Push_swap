@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:25:04 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 22:08:38 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:10:23 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,10 @@ void	sort_u6(int arg_num, t_stack *stack)
 	int		pos;
 	int		count;
 
-	printf("①enter sort_u6\n");
 	min_node = stack->head_a;
 	nd = stack->head_a;
 	pos = 0;
 	count = 0;
-	printf("②enter sort_u6\n");
-	printf("arg_num[%d]\n", arg_num);
 	if (arg_num == 4)
 		sort_4(4, stack);
 	else if (arg_num == 5)
