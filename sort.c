@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/10 18:04:22 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:00:11 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sort_2(t_stack *stack)
 	int		num1;
 	int		num2;
 
-	printf("💜enter sort_2\n");
+	//printf("💜enter sort_2\n");
 	nd = stack->head_a;
 	num1 = nd->num;
 	num2 = nd->next->num;
@@ -53,7 +53,7 @@ void	sort_2b(t_stack *stack)
 
 void	sort(int arg_num, t_stack *stack)
 {
-	printf("💜enter sort\n");
+	//printf("💜enter sort\n");
 	if (arg_num == 2)
 	{
 		sort_2(stack);

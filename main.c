@@ -6,15 +6,15 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 18:40:04 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:55:32 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 #include <libc.h>
+#include <stdio.h>
 
-t_stack	*make_stack(int	*array)
+t_stack	*make_stack(int *array)
 {
 	t_stack	*stack;
 	t_node	*stack_a;
@@ -43,18 +43,18 @@ int	main(int argc, char **argv)
 		return (error_argc());
 	array = make_array(argc - 1, argv);
 	stack = make_stack(array);
-	printf("initialize stack_a [%p]\n", stack->head_a);
-	printf("initialize stack_b [%p]\n", stack->head_b);
+	//printf("initialize stack_a [%p]\n", stack->head_a);
+	//printf("initialize stack_b [%p]\n", stack->head_b);
 	while (index < argc - 2)
 	{
 		index++;
 		nd = add_node(stack->head_a, array[index]);
 	}
 	array = compaction(array, argc - 1, stack->head_a);
-	printf("NODE: 🙆‍♀️add_node done.\n");
+	//printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
-	printf("NODE: 🙆‍♀️try swap.\n");
-	printf("💛sort start\n");
+	//printf("NODE: 🙆‍♀️try swap.\n");
+	//printf("💛sort start\n");
 	sort(argc - 1, stack);
 	while (1)
 	{
@@ -70,15 +70,11 @@ int	main(int argc, char **argv)
 		printf("🎁check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 		stack->head_b = stack->head_b->next;
 	}
-	//printf("💜end node\n");
-	//printf("💛end swap\n");
-	//free();
 	return (0);
 }
 
-
 //__attribute__((destructor))
-//static void	destructor()
+//static void	destructor(void)
 //{
 //	system("\n\nleaks -q push_swap");
 //}

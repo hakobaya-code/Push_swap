@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:06:05 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/10 16:53:04 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:29:23 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	sort_3(t_stack *stack)
 	return ;
 }
 
-void	sort_3b(t_stack *stack)
+void	sort_3b_rev(t_stack *stack)
 {
 	t_node	*nd;
 	int		num1;

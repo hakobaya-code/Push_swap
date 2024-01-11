@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 23:34:21 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 17:03:49 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:59:22 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	*compaction(int *array, int len, t_node *node)
 				node->rank++;
 			j++;
 		}
-		printf("list[%d] compact[%d]\n", copy[i], node->rank);
+		//printf("list[%d] compact[%d]\n", copy[i], node->rank);
 		i++;
 		node = node->next;
 	}

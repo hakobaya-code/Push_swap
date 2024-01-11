@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:21:50 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/10 16:51:01 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:06:57 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,20 @@ int	stack_a_size(t_stack *stack)
 	return (size);
 }
 
+int	stack_b_size(t_stack *stack)
+{
+	int		size;
+	t_node	*nd;
+
+	size = 1;
+	nd = stack->head_b;
+	while (nd->next != NULL)
+	{
+		nd = nd->next;
+		size++;
+	}
+	return (size);
+}
 
 
 //void	sort_100(int arg_num, t_stack *stack)
@@ -74,12 +88,11 @@ void	sort_many(int arg_num, t_stack *stack)
 	int	size;
 
 	size = stack_a_size(stack);
-	printf("size[%d]\n", size);
-	printf("arg_num[%d]\n", arg_num);
+	//printf("size[%d]\n", size);
+	//printf("arg_num[%d]\n", arg_num);
 	if (arg_num <= 10)
 		sort_10(arg_num, stack);
-	//if (arg_num <= 100)
-	//	sort_100(arg_num, stack);
-	//start_half(arg_num, stack);
+	if (arg_num <= 100)
+		sort_100(arg_num, stack);
 	return ;
 }

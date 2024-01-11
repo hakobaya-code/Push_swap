@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:55:32 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 19:08:56 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 19:58:59 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	check_argv_all(char **argv, int i, long num)
 		error_overint();
 	if (argv[i][j] != '\0')
 		error_notdigit();
-	printf("[%d] %ld\n", i, num);
+	//printf("[%d] %ld\n", i, num);
 }
 
 int	check_argv(int argc, char **argv)
@@ -81,7 +81,7 @@ int	*make_array(int arg_num, char **argv)
 
 	i = 0;
 	check_argv(arg_num + 1, argv);
-	printf("arg count: %d\n", arg_num);
+	//printf("arg count: %d\n", arg_num);
 	array = (int *)malloc(sizeof(int) * arg_num);
 	if (!array)
 		exit(1);

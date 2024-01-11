@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:50:28 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/10 18:25:16 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:02:45 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void	sort_10(int arg_num, t_stack *stack)
 	t_node	*nd;
 	int		count;
 
-	printf("🌟arg_num[%d]\n", arg_num);
+	//printf("🌟arg_num[%d]\n", arg_num);
 	nd = stack->head_a;
 	count = arg_num;
 	//up_push(arg_num, 6, stack);
@@ -160,6 +160,6 @@ void	sort_10(int arg_num, t_stack *stack)
 	if (arg_num == 8)
 		sort_2b(stack);
 	sort_10_6(stack);
-	printf("🌟🌟🌟\n");
+	//printf("🌟🌟🌟\n");
 	return ;
 }

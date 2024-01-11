@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/10 17:31:50 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 21:29:31 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_node				*find_min_node_b(t_stack *stack);
 int					calc_min(t_stack *stack);
 int					calc_second_min(t_stack *stack, int min);
 int					stack_a_size(t_stack *stack);
+int					stack_b_size(t_stack *stack);
 
 // sort
 
@@ -79,12 +80,18 @@ void				rrr(t_stack *stack);
 void				pa(t_stack *stack);
 void				pb(t_stack *stack);
 
+//sort util
+void				digit_1(t_stack *stack);
+void				digit_1_pb(int num1, int num2, t_stack *stack);
+void				digit_10(int arg_num, t_stack *stack);
+void				digit_10_pa(int num, t_stack *stack);
+
 //sort
 void				sort(int arg_num, t_stack *stack);
 void				sort_2(t_stack *stack);
 void				sort_2b(t_stack *stack);
 void				sort_3(t_stack *stack);
-void				sort_3b(t_stack *stack);
+void				sort_3b_rev(t_stack *stack);
 void				sort_4(int arg_num, t_stack *stack);
 void				sort_4b(t_stack *stack);
 void				sort_5(int arg_num, t_stack *stack);
@@ -92,6 +99,8 @@ void				sort_5_2(t_stack *stack, int min, int min2);
 void				sort_u6(int arg_num, t_stack *stack);
 void				sort_6(int arg_num, t_stack *stack);
 void				sort_10(int arg_num, t_stack *stack);
+void				sort_100(int arg_num, t_stack *stack);
 void				sort_many(int arg_num, t_stack *stack);
+void				sort_1000(int arg_num, t_stack *stack);
 
 #endif

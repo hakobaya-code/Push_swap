@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:23:23 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 17:05:43 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/11 20:06:10 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_node	*initialize_stackb(void)
 	first_node->rank = (int)NULL;
 	return (first_node);
 }
+
 t_node	*last_node(t_node *node)
 {
 	if (node == NULL)
