@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:07:42 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 13:24:37 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:57:15 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 //Do nothing if a is empty.
 
 
-void	pa(t_stack *stack)
+static void	pa(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;
@@ -45,7 +45,7 @@ void	pa(t_stack *stack)
 	stack->head_a = nd2;
 }
 
-void	pb(t_stack *stack)
+static void	pb(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;

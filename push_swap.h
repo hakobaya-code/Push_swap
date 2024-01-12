@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 17:53:45 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 19:25:50 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,26 +64,26 @@ int					stack_size(t_stack *stack, char c);
 
 // swap
 void				swap(t_stack *stack, char c);
-void				sa(t_stack *stack);
-void				sb(t_stack *stack);
 void				ss(t_stack *stack);
+//static void			sa(t_stack *stack);
+//static void			sb(t_stack *stack);
 
 // rotate
 void				rotate(t_stack *stack, char c);
-void				ra(t_stack *stack);
-void				rb(t_stack *stack);
 void				rr(t_stack *stack);
+//static void			ra(t_stack *stack);
+//static void			rb(t_stack *stack);
 
 // rev_rotate
 void				rev_rotate(t_stack *stack, char c);
-void				rra(t_stack *stack);
-void				rrb(t_stack *stack);
 void				rrr(t_stack *stack);
+//static void			rra(t_stack *stack);
+//static void			rrb(t_stack *stack);
 
 // push
 void				push(t_stack *stack, char c);
-void				pa(t_stack *stack);
-void				pb(t_stack *stack);
+//static void		pa(t_stack *stack);
+//static void		pb(t_stack *stack);
 
 //sort util
 void				digit_1(t_stack *stack);
@@ -91,6 +91,11 @@ void				digit_1_pb(int num1, int num2, t_stack *stack);
 void				digit_10(int arg_num, t_stack *stack);
 void				digit_10_pa(int num, t_stack *stack);
 void				a_5_b_other(t_stack *stack);
+void				b_5_and_pa_ra(t_stack *stack);
+
+//sort_many util
+void				half_pb(int arg_num, int half, t_stack *stack);
+int					unsorted_num(t_stack *stack);
 
 //sort
 void				sort(int arg_num, t_stack *stack);

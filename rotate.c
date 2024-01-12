@@ -6,13 +6,13 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:02 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 13:58:22 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:53:23 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *stack)
+static void	ra(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;
@@ -32,7 +32,7 @@ void	ra(t_stack *stack)
 
 }
 
-void	rb(t_stack *stack)
+static void	rb(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;

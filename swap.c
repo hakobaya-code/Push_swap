@@ -6,13 +6,13 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:42:15 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 13:23:24 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:54:05 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack)
+static void	sa(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;
@@ -41,7 +41,7 @@ void	sa(t_stack *stack)
 
 }
 
-void	sb(t_stack *stack)
+static void	sb(t_stack *stack)
 {
 	t_node	*nd1;
 	t_node	*nd2;
