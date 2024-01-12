@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:25:04 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 17:30:33 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:45:04 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	sort_5a(int arg_num, t_stack *stack)
 	count = 0;
 	nd = stack->head_a;
 	min = find_min_node(stack, 'a');
-	second = find_second_min_node(stack, 'a', min);
+	second = find_next_min_node(stack, 'a', min);
 	while (arg_num > 0 && count < 2)
 	{
 		if (nd->rank == min->rank || nd->rank == second->rank)
@@ -47,7 +47,7 @@ static void	sort_5b(int arg_num, t_stack *stack)
 	count = 0;
 	nd = stack->head_b;
 	min = find_min_node(stack, 'b');
-	second = find_second_min_node(stack, 'b', min);
+	second = find_next_min_node(stack, 'b', min);
 	while (arg_num > 0 && count < 2)
 	{
 		if (nd->rank == min->rank || nd->rank == second->rank)
@@ -72,7 +72,7 @@ static void	sort_5b_rev(int arg_num, t_stack *stack)
 	count = 0;
 	nd = stack->head_b;
 	max = find_max_node(stack, 'b');
-	second = find_second_max_node(stack, 'b', max);
+	second = find_next_max_node(stack, 'b', max);
 	while (arg_num > 0 && count < 2)
 	{
 		if (nd->rank == max->rank || nd->rank == second->rank)
@@ -117,7 +117,7 @@ void	sort_5_rev(int arg_num, t_stack *stack, char c)
 	push(stack, 'b');
 	push(stack, 'b');
 	nd = stack->head_b;
-	if (nd->rank > nd->next->rank)
+	if (nd->rank < nd->next->rank)
 		swap(stack, 'b');
 }
 

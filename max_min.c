@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:20:00 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 17:20:53 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 18:14:46 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_node	*find_min_node(t_stack *stack, char c)
 	return (min_nd);
 }
 
-t_node	*find_second_min_node(t_stack *stack, char c, t_node *min)
+t_node	*find_next_min_node(t_stack *stack, char c, t_node *min)
 {
 	t_node	*nd;
 	t_node	*second;
@@ -45,12 +45,12 @@ t_node	*find_second_min_node(t_stack *stack, char c, t_node *min)
 		second = stack->head_a;
 	else
 		second = stack->head_b;
-	if (min->rank == second->rank)
+	while (min->rank >= second->rank)
 		second = second->next;
 	nd = second;
 	while (nd->next != NULL)
 	{
-		if ((second->rank > nd->next->rank) && (nd->next->rank != min->rank))
+		if ((second->rank > nd->next->rank) && (nd->next->rank > min->rank))
 			second = nd->next;
 		nd = nd->next;
 	}
@@ -81,7 +81,7 @@ t_node	*find_max_node(t_stack *stack, char c)
 	return (max_nd);
 }
 
-t_node	*find_second_max_node(t_stack *stack, char c, t_node *max)
+t_node	*find_next_max_node(t_stack *stack, char c, t_node *max)
 {
 	t_node	*nd;
 	t_node	*second;
@@ -90,12 +90,12 @@ t_node	*find_second_max_node(t_stack *stack, char c, t_node *max)
 		second = stack->head_a;
 	else
 		second = stack->head_b;
-	if (max->rank == second->rank)
+	while (max->rank <= second->rank)
 		second = second->next;
 	nd = second;
 	while (nd->next != NULL)
 	{
-		if ((second->rank < nd->next->rank) && (nd->next->rank != max->rank))
+		if ((second->rank < nd->next->rank) && (nd->next->rank < max->rank))
 			second = nd->next;
 		nd = nd->next;
 	}
