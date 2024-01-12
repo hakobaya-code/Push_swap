@@ -6,12 +6,11 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:06:09 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 14:33:25 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:20:23 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	top_push_a(int arg_num, int pos, t_stack *stack)
 {
@@ -93,28 +92,4 @@ int	node_position(t_stack *stack, t_node *node, char c)
 		pos++;
 	}
 	return (pos);
-}
-
-t_node	*find_min_node(t_stack *stack, char c)
-{
-	t_node	*nd;
-	t_node	*min_nd;
-
-	if (c == 'a')
-	{
-		nd = stack->head_a;
-		min_nd = stack->head_a;
-	}
-	else
-	{
-		nd = stack->head_b;
-		min_nd = stack->head_b;
-	}
-	while (nd->next != NULL)
-	{
-		if (min_nd->rank > nd->next->rank)
-			min_nd = nd->next;
-		nd = nd->next;
-	}
-	return (min_nd);
 }

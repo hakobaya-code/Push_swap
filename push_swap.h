@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 14:07:51 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 17:32:17 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ t_node				*last_nd(t_stack *stack, char c);
 void				top_push(int arg_num, int pos, t_stack *stack, char c);
 int					node_position(t_stack *stack, t_node *node, char c);
 t_node				*find_min_node(t_stack *stack, char c);
+t_node				*find_second_min_node(t_stack *stack, char c, t_node *min);
+t_node				*find_max_node(t_stack *stack, char c);
+t_node				*find_second_max_node(t_stack *stack, char c, t_node *max);
 int					calc_min(t_stack *stack);
 int					calc_second_min(t_stack *stack, int min);
 int					stack_size(t_stack *stack, char c);
@@ -87,16 +90,19 @@ void				digit_1(t_stack *stack);
 void				digit_1_pb(int num1, int num2, t_stack *stack);
 void				digit_10(int arg_num, t_stack *stack);
 void				digit_10_pa(int num, t_stack *stack);
+void				a_5_b_other(int arg_num, t_stack *stack);
 
 //sort
 void				sort(int arg_num, t_stack *stack);
 void				sort_2(t_stack *stack, char c);
+void				sort_2_rev(t_stack *stack, char c);
 void				sort_3(t_stack *stack, char c);
 void				sort_3_rev(t_stack *stack, char c);
 void				sort_4(t_stack *stack, char c);
+void				sort_4_rev(t_stack *stack, char c);
 void				sort_5(int arg_num, t_stack *stack, char c);
-//void				sort_6(int arg_num, t_stack *stack, char c);
-//void				sort_many(int arg_num, t_stack *stack, char c);
+void				sort_5_rev(int arg_num, t_stack *stack, char c);
+void				sort_many(int arg_num, t_stack *stack, char c);
 //void				sort_10(int arg_num, t_stack *stack);
 //void				sort_100(int arg_num, t_stack *stack);
 //void				sort_1000(int arg_num, t_stack *stack);
