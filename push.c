@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:07:42 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 17:02:31 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:24:37 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	pa(t_stack *stack)
 	else
 		nd2->next = NULL;
 	stack->head_a = nd2;
-	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack *stack)
@@ -70,5 +69,18 @@ void	pb(t_stack *stack)
 	else
 		nd1->next = NULL;
 	stack->head_b = nd1;
-	ft_putstr_fd("pb\n", 1);
+}
+
+void	push(t_stack *stack, char c)
+{
+	if (c == 'a')
+	{
+		pa(stack);
+		ft_putstr_fd("pa\n", 1);
+	}
+	else
+	{
+		pb(stack);
+		ft_putstr_fd("pb\n", 1);
+	}
 }

@@ -1,17 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_util2.c                                       :+:      :+:    :+:   */
+/*   node_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 22:07:47 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/04 22:08:12 by hakobaya         ###   ########.fr       */
+/*   Created: 2024/01/12 14:10:35 by hakobaya          #+#    #+#             */
+/*   Updated: 2024/01/12 14:14:11 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+t_node	*last_nd(t_stack *stack, char c)
+{
+	t_node	*nd;
+
+	if (c == 'a')
+		nd = stack->head_a;
+	else
+		nd = stack->head_b;
+	while (nd->next != NULL)
+		nd = nd->next;
+	return (nd);
+}
 
 int	calc_min(t_stack *stack)
 {

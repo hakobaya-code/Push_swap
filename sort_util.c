@@ -6,32 +6,14 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:06:09 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/10 16:12:05 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:33:25 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*last_nd(t_stack *stack)
-{
-	t_node	*nd;
 
-	nd = stack->head_a;
-	while (nd->next != NULL)
-		nd = nd->next;
-	return (nd);
-}
-
-t_node	*last_nd_b(t_stack *stack)
-{
-	t_node	*nd;
-
-	nd = stack->head_b;
-	while (nd->next != NULL)
-		nd = nd->next;
-	return (nd);
-}
-void	top_push(int arg_num, int pos, t_stack *stack)
+void	top_push_a(int arg_num, int pos, t_stack *stack)
 {
 	int	i;
 
@@ -42,7 +24,7 @@ void	top_push(int arg_num, int pos, t_stack *stack)
 		{
 			while (i < pos)
 			{
-				ra(stack);
+				rotate(stack, 'a');
 				i++;
 			}
 		}
@@ -51,11 +33,11 @@ void	top_push(int arg_num, int pos, t_stack *stack)
 	{
 		while (i < arg_num - pos)
 		{
-			rra(stack);
+			rev_rotate(stack, 'a');
 			i++;
 		}
 	}
-	pb(stack);
+	push(stack, 'b');
 	return ;
 }
 
@@ -70,7 +52,7 @@ void	top_push_b(int arg_num, int pos, t_stack *stack)
 		{
 			while (i < pos)
 			{
-				rb(stack);
+				rotate(stack, 'b');
 				i++;
 			}
 		}
@@ -79,20 +61,32 @@ void	top_push_b(int arg_num, int pos, t_stack *stack)
 	{
 		while (i < arg_num - pos)
 		{
-			rrb(stack);
+			rev_rotate(stack, 'b');
 			i++;
 		}
 	}
-	pa(stack);
+	push(stack, 'a');
 	return ;
 }
-int	node_position(t_stack *stack, t_node *node)
+
+void	top_push(int arg_num, int pos, t_stack *stack, char c)
+{
+	if (c == 'a')
+		top_push_a(arg_num, pos, stack);
+	else
+		top_push_b(arg_num, pos, stack);
+}
+
+int	node_position(t_stack *stack, t_node *node, char c)
 {
 	int		pos;
 	t_node	*rel_nd;
 
+	if (c == 'a')
+		rel_nd = stack->head_a;
+	else
+		rel_nd = stack->head_b;
 	pos = 0;
-	rel_nd = stack->head_a;
 	while (rel_nd != node && rel_nd->next != NULL)
 	{
 		rel_nd = rel_nd->next;
@@ -101,44 +95,21 @@ int	node_position(t_stack *stack, t_node *node)
 	return (pos);
 }
 
-int	node_position_b(t_stack *stack, t_node *node)
-{
-	int		pos;
-	t_node	*rel_nd;
-
-	pos = 0;
-	rel_nd = stack->head_b;
-	while (rel_nd != node && rel_nd->next != NULL)
-	{
-		rel_nd = rel_nd->next;
-		pos++;
-	}
-	return (pos);
-}
-
-t_node	*find_min_node(t_stack *stack)
+t_node	*find_min_node(t_stack *stack, char c)
 {
 	t_node	*nd;
 	t_node	*min_nd;
 
-	nd = stack->head_a;
-	min_nd = stack->head_a;
-	while (nd->next != NULL)
+	if (c == 'a')
 	{
-		if (min_nd->rank > nd->next->rank)
-			min_nd = nd->next;
-		nd = nd->next;
+		nd = stack->head_a;
+		min_nd = stack->head_a;
 	}
-	return (min_nd);
-}
-
-t_node	*find_min_node_b(t_stack *stack)
-{
-	t_node	*nd;
-	t_node	*min_nd;
-
-	nd = stack->head_b;
-	min_nd = stack->head_b;
+	else
+	{
+		nd = stack->head_b;
+		min_nd = stack->head_b;
+	}
 	while (nd->next != NULL)
 	{
 		if (min_nd->rank > nd->next->rank)

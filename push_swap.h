@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/11 21:29:31 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:07:51 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,34 +49,36 @@ void				*add_node(t_node *node, int num);
 int					*compaction(int *array, int len, t_node *node);
 
 // util
-t_node				*last_nd(t_stack *stack);
-void				top_push(int arg_num, int pos, t_stack *stack);
-void				top_push_b(int arg_num, int pos, t_stack *stack);
-int					node_position(t_stack *stack, t_node *node);
-int					node_position_b(t_stack *stack, t_node *node);
-t_node				*find_min_node(t_stack *stack);
-t_node				*find_min_node_b(t_stack *stack);
+t_node				*last_nd(t_stack *stack, char c);
+void				top_push(int arg_num, int pos, t_stack *stack, char c);
+int					node_position(t_stack *stack, t_node *node, char c);
+t_node				*find_min_node(t_stack *stack, char c);
 int					calc_min(t_stack *stack);
 int					calc_second_min(t_stack *stack, int min);
-int					stack_a_size(t_stack *stack);
-int					stack_b_size(t_stack *stack);
+int					stack_size(t_stack *stack, char c);
 
 // sort
 
 // swap
+void				swap(t_stack *stack, char c);
 void				sa(t_stack *stack);
 void				sb(t_stack *stack);
 void				ss(t_stack *stack);
 
 // rotate
+void				rotate(t_stack *stack, char c);
 void				ra(t_stack *stack);
 void				rb(t_stack *stack);
 void				rr(t_stack *stack);
+
+// rev_rotate
+void				rev_rotate(t_stack *stack, char c);
 void				rra(t_stack *stack);
 void				rrb(t_stack *stack);
 void				rrr(t_stack *stack);
 
 // push
+void				push(t_stack *stack, char c);
 void				pa(t_stack *stack);
 void				pb(t_stack *stack);
 
@@ -88,19 +90,15 @@ void				digit_10_pa(int num, t_stack *stack);
 
 //sort
 void				sort(int arg_num, t_stack *stack);
-void				sort_2(t_stack *stack);
-void				sort_2b(t_stack *stack);
-void				sort_3(t_stack *stack);
-void				sort_3b_rev(t_stack *stack);
-void				sort_4(int arg_num, t_stack *stack);
-void				sort_4b(t_stack *stack);
-void				sort_5(int arg_num, t_stack *stack);
-void				sort_5_2(t_stack *stack, int min, int min2);
-void				sort_u6(int arg_num, t_stack *stack);
-void				sort_6(int arg_num, t_stack *stack);
-void				sort_10(int arg_num, t_stack *stack);
-void				sort_100(int arg_num, t_stack *stack);
-void				sort_many(int arg_num, t_stack *stack);
-void				sort_1000(int arg_num, t_stack *stack);
+void				sort_2(t_stack *stack, char c);
+void				sort_3(t_stack *stack, char c);
+void				sort_3_rev(t_stack *stack, char c);
+void				sort_4(t_stack *stack, char c);
+void				sort_5(int arg_num, t_stack *stack, char c);
+//void				sort_6(int arg_num, t_stack *stack, char c);
+//void				sort_many(int arg_num, t_stack *stack, char c);
+//void				sort_10(int arg_num, t_stack *stack);
+//void				sort_100(int arg_num, t_stack *stack);
+//void				sort_1000(int arg_num, t_stack *stack);
 
 #endif

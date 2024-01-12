@@ -3,9 +3,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 PUSH_SWAP_SRCS = main.c error.c array.c node.c swap.c\
-				rotate.c rotate2.c push.c compaction.c\
-				sort.c sort3.c sort_u6.c sort_util.c sort_util2.c\
-				sort_many.c sort_10.c sort_100.c sort_1000.c
+				rotate.c rev_rotate.c push.c compaction.c\
+				sort.c sort3.c sort_u6.c sort_util.c\
+				stack_util.c node_util.c
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 
 LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)

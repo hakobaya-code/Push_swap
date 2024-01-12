@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:42:15 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/12/12 17:27:18 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 13:23:24 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sa(t_stack *stack)
 	//printf("💛head_a [%p] num[%d] prev[%p] next[%p]\n", head_a, head_a->num, head_a->prev, head_a->next);
 	stack->head_a = nd2;
 	//printf("💛head_a [%p] num[%d] prev[%p] next[%p]\n", head_a, head_a->num, head_a->prev, head_a->next);
-	ft_putstr_fd("sa\n", 1);
+
 }
 
 void	sb(t_stack *stack)
@@ -66,7 +66,6 @@ void	sb(t_stack *stack)
 	//printf("💜nd2 [%p] num[%d] prev[%p] next[%p]\n", nd2, nd2->num, nd2->prev, nd2->next);
 	stack->head_b = nd2;
 	//printf("💛head_a [%p] num[%d] prev[%p] next[%p]\n", head_a, head_a->num, head_a->prev, head_a->next);
-	ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack *stack)
@@ -74,4 +73,18 @@ void	ss(t_stack *stack)
 	sa(stack);
 	sb(stack);
 	ft_putstr_fd("ss\n", 1);
+}
+
+void	swap(t_stack *stack, char c)
+{
+	if (c == 'a')
+	{
+		sa(stack);
+		ft_putstr_fd("sa\n", 1);
+	}
+	else
+	{
+		sb(stack);
+		ft_putstr_fd("sb\n", 1);
+	}
 }

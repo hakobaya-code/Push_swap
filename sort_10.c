@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:50:28 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/11 20:02:45 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:03:58 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,6 @@ void	sort_3b2(t_stack *stack)
 	}
 }
 
-void	sort_4b(t_stack *stack)
-{
-	t_node	*min_node;
-	int		pos;
-
-	min_node = find_min_node_b(stack);
-	pos = node_position_b(stack, min_node);
-	top_push_b(4, pos, stack);
-	sort_3b2(stack);
-	pb(stack);
-	return ;
-}
-
 //void	up_push(int a_size, int upper, t_stack *stack)
 //{
 //	//int	size;
@@ -135,13 +122,15 @@ void	sort_10_6(t_stack *stack)
 	return ;
 }
 
-void	sort_10(int arg_num, t_stack *stack)
+void	sort_10(int arg_num, t_stack *stack, char c)
 {
 	t_node	*nd;
 	int		count;
 
-	//printf("🌟arg_num[%d]\n", arg_num);
-	nd = stack->head_a;
+	if (c == 'a')
+		nd = stack->head_a;
+	else
+		nd = stack->head_b;
 	count = arg_num;
 	//up_push(arg_num, 6, stack);
 	while (count > 0 && stack_a_size(stack) > 6)
@@ -163,3 +152,34 @@ void	sort_10(int arg_num, t_stack *stack)
 	//printf("🌟🌟🌟\n");
 	return ;
 }
+
+//void	sort_10(int arg_num, t_stack *stack, char c)
+//{
+//	t_node	*nd;
+//	int		count;
+
+//	if (c == 'a')
+//		nd = stack->head_a;
+//	else
+//		nd = stack->head_b;
+//	count = arg_num;
+//	//up_push(arg_num, 6, stack);
+//	while (count > 0 && stack_a_size(stack) > 6)
+//	{
+//		if (nd->rank >= 6)
+//			pb(stack);
+//		else
+//			ra(stack);
+//		count--;
+//		nd = stack->head_a;
+//	}
+//	if (arg_num == 10)
+//		sort_4b(stack);
+//	if (arg_num == 9)
+//		sort_3b2(stack);
+//	if (arg_num == 8)
+//		sort_2b(stack);
+//	sort_10_6(stack);
+//	//printf("🌟🌟🌟\n");
+//	return ;
+//}

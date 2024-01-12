@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/11 20:55:32 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:29:19 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,20 @@ int	main(int argc, char **argv)
 	//printf("NODE: 🙆‍♀️try swap.\n");
 	//printf("💛sort start\n");
 	sort(argc - 1, stack);
-	while (1)
-	{
-		if (stack->head_a == NULL)
-			break ;
-		printf("🎁check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
-		stack->head_a = stack->head_a->next;
-	}
-	while (1)
-	{
-		if (stack->head_b == NULL)
-			break ;
-		printf("🎁check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
-		stack->head_b = stack->head_b->next;
-	}
+	//while (1)
+	//{
+	//	if (stack->head_a == NULL)
+	//		break ;
+	//	printf("🎁check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
+	//	stack->head_a = stack->head_a->next;
+	//}
+	//while (1)
+	//{
+	//	if (stack->head_b == NULL)
+	//		break ;
+	//	printf("🎁check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
+	//	stack->head_b = stack->head_b->next;
+	//}
 	return (0);
 }
 
