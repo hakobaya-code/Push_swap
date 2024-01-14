@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 19:25:50 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:18:45 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,11 @@ void				a_5_b_other(t_stack *stack);
 void				b_5_and_pa_ra(t_stack *stack);
 
 //sort_many util
-void				half_pb(int arg_num, int half, t_stack *stack);
+int					half_pb(int unsorted, int half, t_stack *stack, int quarter);
+t_node				*rank_0_pos(t_stack *stack);
 int					unsorted_num(t_stack *stack);
+t_node				*find_min_node_until_rank0(t_stack *stack);
+t_node				*find_next_min_node_until_rank0(t_stack *stack, t_node *min);
 
 //sort
 void				sort(int arg_num, t_stack *stack);
@@ -108,8 +111,5 @@ void				sort_4_rev(t_stack *stack, char c);
 void				sort_5(int arg_num, t_stack *stack, char c);
 void				sort_5_rev(int arg_num, t_stack *stack, char c);
 void				sort_many(int arg_num, t_stack *stack, char c);
-//void				sort_10(int arg_num, t_stack *stack);
-//void				sort_100(int arg_num, t_stack *stack);
-//void				sort_1000(int arg_num, t_stack *stack);
 
 #endif

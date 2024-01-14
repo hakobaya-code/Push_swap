@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:26:48 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 19:44:19 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:12:45 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	b_5_and_pa_ra(t_stack *stack)
 		rank_5 = find_next_min_node(stack, 'b', rank_5);
 		//printf("rank[%d]\n", rank_5->rank);
 	}
-
 	while (stack_size(stack, 'b') > 5)
 	{
 		if (nd->rank > rank_5->rank)

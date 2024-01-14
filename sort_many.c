@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:21:50 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 20:15:13 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:41:31 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,18 @@ void	stack_b_under_5(t_stack *stack)
 	if (size > 5)
 		return ;
 	if (size == 5)
-		sort_5_rev(5, stack, 'b');
+		sort_5(5, stack, 'b');
 	else if (size == 4)
-		sort_4_rev(stack, 'b');
+		sort_4(stack, 'b');
 	else if (size == 3)
-		sort_3_rev(stack, 'b');
+		sort_3(stack, 'b');
 	if (size == 2)
-		sort_2_rev(stack, 'b');
+		sort_2(stack, 'b');
 	while (size-- > 0)
+	{
 		push(stack, 'a');
+		rotate(stack, 'a');
+	}
 }
 
 //void	sort_100(int arg_num, t_stack *stack)
@@ -73,30 +76,105 @@ void	stack_b_under_5(t_stack *stack)
 //	return ;
 //}
 
-void	half_pb(int arg_num, int half, t_stack *stack)
+int	half_rank(t_stack *stack, char c, int unsorted)
+{
+	int		size;
+	int		half_size;
+	t_node	*half_nd;
+
+	size = unsorted;
+	half_nd = find_min_node(stack, c);
+	//printf("min_nd[%d]\n", half_nd->rank);
+	if (size % 2 == 1)
+		half_size = (size - 1) / 2;
+	else
+		half_size = size / 2;
+	while (half_size > 0)
+	{
+		half_nd = find_next_min_node(stack, c, half_nd);
+		unsorted--;
+		half_size--;
+		//printf("size [%d], half [%d]\n", size, half_nd->rank);
+	}
+	//printf("half_nd[%d]\n", half_nd->rank);
+	return (half_nd->rank);
+}
+
+//int	half_rank_unsorted(t_stack *stack, int unsorted)
+//{
+//	int		size;
+//	int		half_size;
+//	t_node	*half_nd;
+
+//	size = unsorted;
+//	half_nd = find_min_node_until_rank0(stack);
+//	if (size % 2 == 1)
+//		half_size = (size - 1) / 2;
+//	else
+//		half_size = size / 2;
+//	while (half_size > 0)
+//	{
+//		half_nd = find_next_min_node_until_rank0(stack, half_nd);
+//		half_size--;
+//		//printf("size [%d], half [%d]\n", size, half_nd->rank);
+//	}
+//	return (half_nd->rank);
+//}
+
+int	unsorted_min5(t_stack *stack, int unsorted)
+{
+	t_node	*min5;
+	int		size;
+	int		count;
+
+	size = unsorted;
+	count = 4;
+	min5 = find_min_node_until_rank0(stack);
+	while (count > 0)
+	{
+		min5 = find_next_min_node_until_rank0(stack, min5);
+		count--;
+	}
+	return (min5->rank);
+}
+
+t_node	*rank_0_pos(t_stack *stack)
 {
 	t_node	*nd;
-	int		quarter;
 
 	nd = stack->head_a;
-	if (half % 2 == 1)
-		quarter = (half + 1) / 2;
-	else
-		quarter = half / 2;
-	//printf("half[%d]\n", half);
-	//printf("quarter[%d]\n", quarter);
-	//if (quarter < 5)
-	//	quarter = 5;
-	if (half <= 5)
+	while (nd->next != NULL)
 	{
-		while (arg_num-- > 0)
-		{
-			push(stack, 'b');
-			nd = stack->head_a;
-		}
-		return ;
+		if (nd->rank == 0)
+			return (nd);
+		nd = nd->next;
 	}
-	while (arg_num-- > 0)
+	exit(1);
+}
+
+void	sort_last_10(t_stack *stack)
+{
+	t_node	*nd;
+	t_node	*rank_0;
+	int		unsorted;
+
+	nd = stack->head_a;
+	rank_0 = rank_0_pos(stack);
+	unsorted = unsorted_num(stack);
+	while (unsorted-- > 0)
+		push(stack, 'b');
+	b_5_and_pa_ra(stack);
+}
+
+int	half_pb(int unsorted, int half, t_stack *stack, int quarter)
+{
+	t_node	*nd;
+	int		r_count;
+
+	nd = stack->head_a;
+	//printf("unsorted [%d] half [%d] quarter [%d]\n", unsorted, half, quarter);
+	r_count = 0;
+	while (unsorted-- > 0)
 	{
 		if (nd->rank < quarter)
 		{
@@ -104,44 +182,102 @@ void	half_pb(int arg_num, int half, t_stack *stack)
 			rotate(stack, 'b');
 		}
 		else if (nd->rank < half)
+		{
 			push(stack, 'b');
+		}
 		else
+		{
 			rotate(stack, 'a');
+			r_count++;
+		}
 		nd = stack->head_a;
 	}
+	return (r_count);
 }
 
-//void	min_sort_5(t_stack *stack)
-//{
-//	return ;
-//}
+int	min5_pb(t_stack *stack, int unsorted, int min5)
+{
+	t_node	*nd;
+	int		r_count;
+	int		pb_count;
 
+	nd = stack->head_a;
+	r_count = 0;
+	pb_count = 0;
+	while (unsorted-- > 0 && pb_count < 5)
+	{
+		if (nd->rank <= min5)
+		{
+			push(stack, 'b');
+			pb_count++;
+		}
+		else
+		{
+			rotate(stack, 'a');
+			r_count++;
+		}
+		nd = stack->head_a;
+	}
+	return (r_count);
+}
+
+void	sort_middle(t_stack *stack, int unsorted)
+{
+	int	r_count;
+	int	min5;
+
+	min5 = unsorted_min5(stack, unsorted);
+	r_count = min5_pb(stack, unsorted, min5);
+	while (r_count-- > 0)
+		rev_rotate(stack, 'a');
+	if (stack_size(stack, 'b') > 5)
+		b_5_and_pa_ra(stack);
+	else
+		stack_b_under_5(stack);
+}
+
+//void	sort_middle(t_stack *stack, int unsorted)
+//{
+//	int	r_count;
+//	int	half;
+//	int	quarter;
+
+//	half = half_rank_unsorted(stack, unsorted);
+//	quarter = half_rank_unsorted(stack, half);
+//	r_count = half_pb(unsorted, half, stack, quarter);
+//	while (r_count-- > 0)
+//		rev_rotate(stack, 'a');
+//	if (stack_size(stack, 'b') > 5)
+//		b_5_and_pa_ra(stack);
+//	else
+//		stack_b_under_5(stack);
+//}
 void	sort_many(int arg_num, t_stack *stack, char c)
 {
-	int	size;
-	int	half_rank;
+	int	half;
+	int	quarter;
 	int	unsorted;
+	int	r_count;
 
-	size = stack_size(stack, c);
 	unsorted = arg_num;
+	half = half_rank(stack, c, unsorted);
+	quarter = half_rank(stack, c, unsorted);
+	//printf("half_rank[%d]\n", half);
+	r_count = half_pb(unsorted, half, stack, quarter);
+	b_5_and_pa_ra(stack);
+	unsorted = unsorted_num(stack);
 	while (unsorted > 10)
 	{
-		if (unsorted % 2 == 1)
-			half_rank = (unsorted - 1) / 2;
-		else
-			half_rank = unsorted / 2;
-		//printf("half_rank[%d]\n", half_rank);
-		half_pb(unsorted, half_rank, stack);
-		//printf("half_pb done\n");
-		b_5_and_pa_ra(stack);
-		//printf("b_5_and_pa_ra done\n");
+		sort_middle(stack, unsorted);
 		unsorted = unsorted_num(stack);
-		//printf("unsorted[%d]\n", unsorted);
 	}
 	if (unsorted > 5)
+		sort_last_10(stack);
+	unsorted = unsorted_num(stack);
+	if (unsorted <= 5)
 	{
-		a_5_b_other(stack);
-		sort_5(5, stack, 'a');
+		while (unsorted-- > 0)
+			push(stack, 'b');
 		stack_b_under_5(stack);
 	}
 	//while (1)
@@ -158,12 +294,5 @@ void	sort_many(int arg_num, t_stack *stack, char c)
 	//	printf("💭check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 	//	stack->head_b = stack->head_b->next;
 	//}
-	if (unsorted <= 5)
-	{
-		while (unsorted-- > 0)
-			push(stack, 'b');
-		stack_b_under_5(stack);
-		//return ;
-	}
 	return ;
 }

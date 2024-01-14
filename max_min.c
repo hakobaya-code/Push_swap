@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 17:20:00 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 18:14:46 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:14:12 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,40 @@ t_node	*find_next_min_node(t_stack *stack, char c, t_node *min)
 		second = second->next;
 	nd = second;
 	while (nd->next != NULL)
+	{
+		if ((second->rank > nd->next->rank) && (nd->next->rank > min->rank))
+			second = nd->next;
+		nd = nd->next;
+	}
+	return (second);
+}
+
+t_node	*find_min_node_until_rank0(t_stack *stack)
+{
+	t_node	*nd;
+	t_node	*min_nd;
+
+	min_nd = stack->head_a;
+	nd = stack->head_a;
+	while (nd->next->rank != 0)
+	{
+		if (min_nd->rank > nd->next->rank)
+			min_nd = nd->next;
+		nd = nd->next;
+	}
+	return (min_nd);
+}
+
+t_node	*find_next_min_node_until_rank0(t_stack *stack, t_node *min)
+{
+	t_node	*nd;
+	t_node	*second;
+
+	second = stack->head_a;
+	while (min->rank >= second->rank && (second->next->rank != 0))
+		second = second->next;
+	nd = second;
+	while (nd->next->rank != 0)
 	{
 		if ((second->rank > nd->next->rank) && (nd->next->rank > min->rank))
 			second = nd->next;
@@ -101,3 +135,4 @@ t_node	*find_next_max_node(t_stack *stack, char c, t_node *max)
 	}
 	return (second);
 }
+

@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:25:04 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 17:45:04 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:11:53 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,10 @@ void	sort_5(int arg_num, t_stack *stack, char c)
 	sort_3(stack, c);
 	push(stack, c);
 	push(stack, c);
-	nd = stack->head_a;
+	if (c == 'a')
+		nd = stack->head_a;
+	else
+		nd = stack->head_b;
 	if (nd->rank > nd->next->rank)
 		swap(stack, c);
 }
@@ -116,7 +119,10 @@ void	sort_5_rev(int arg_num, t_stack *stack, char c)
 	sort_3_rev(stack, 'b');
 	push(stack, 'b');
 	push(stack, 'b');
-	nd = stack->head_b;
+	if (c == 'a')
+		nd = stack->head_a;
+	else
+		nd = stack->head_b;
 	if (nd->rank < nd->next->rank)
 		swap(stack, 'b');
 }
