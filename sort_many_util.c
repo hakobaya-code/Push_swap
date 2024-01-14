@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:26:48 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/14 17:12:45 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:00:23 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,37 @@ void	b_5_and_pa_ra(t_stack *stack)
 	}
 }
 
+void	b_3_and_pa_ra(t_stack *stack)
+{
+	t_node	*nd;
+	t_node	*rank_3;
+	int		count;
+
+	nd = stack->head_b;
+	rank_3 = find_min_node(stack, 'b');
+	//printf("rank[%d]\n", rank_3->rank);
+	count = 2;
+	while (count-- > 0)
+	{
+		rank_3 = find_next_min_node(stack, 'b', rank_3);
+		//printf("rank[%d]\n", rank_3->rank);
+	}
+	while (stack_size(stack, 'b') > 5)
+	{
+		if (nd->rank > rank_3->rank)
+			push(stack, 'a');
+		else
+			rotate(stack, 'b');
+		nd = stack->head_b;
+	}
+	sort_5(5, stack, 'b');
+	count = 5;
+	while (count-- > 0)
+	{
+		push(stack, 'a');
+		rotate(stack, 'a');
+	}
+}
 int	unsorted_num(t_stack *stack)
 {
 	t_node	*nd;
