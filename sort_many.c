@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:21:50 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 03:50:52 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 07:16:05 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void	stack_b_under_5(t_stack *stack)
 		rotate(stack, 'a');
 	}
 }
+
+
 
 int	divide_pos(t_stack *stack, int unsorted, int percent)
 {
@@ -95,24 +97,28 @@ void	sort_last_10(t_stack *stack)
 //	return (r_count);
 //}
 
-int	divide_3(int unsorted, int middle, t_stack *stack, int small)
+
+void	divide_3(int arg_num, t_stack *stack, int big, int small)
 {
 	t_node	*nd;
 	int		r_count;
+	int		size;
 
 	nd = stack->head_a;
 	r_count = 0;
-	while (unsorted-- > 0)
+	//printf("🌟enter divide_3\n");
+	size = stack_size(stack, 'a');
+	while (size-- > 0)
 	{
-		if (nd->rank < small)
+		if (nd->rank == (arg_num - 1))
+			rotate(stack, 'a');
+		else if (nd->rank / 20 == small)
 		{
 			push(stack, 'b');
 			rotate(stack, 'b');
 		}
-		else if (nd->rank < middle)
-		{
+		else if (nd->rank / 20 == big)
 			push(stack, 'b');
-		}
 		else
 		{
 			rotate(stack, 'a');
@@ -120,7 +126,40 @@ int	divide_3(int unsorted, int middle, t_stack *stack, int small)
 		}
 		nd = stack->head_a;
 	}
-	return (r_count);
+}
+
+void	divide_group(int arg_num, t_stack *stack)
+{
+	int	group;
+	int	big;
+	int	small;
+
+	group = arg_num / 20;
+	big = (group / 2);
+	small = (group / 2) - 1;
+	//printf("🌟group[%d]\n", group);
+	while (big < group)
+	{
+		//printf("big[%d] small[%d]\n", big, small);
+		divide_3(arg_num, stack, big, small);
+		big++;
+		small--;
+		//printf("big[%d] small[%d]\n", big, small);
+	}
+	//while (1)
+	//{
+	//	if (stack->head_a == NULL)
+	//		break ;
+	//	printf("💓check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
+	//	stack->head_a = stack->head_a->next;
+	//}
+	//while (1)
+	//{
+	//	if (stack->head_b == NULL)
+	//		break ;
+	//	printf("💭check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
+	//	stack->head_b = stack->head_b->next;
+	//}
 }
 
 void	check_sort(t_stack *stack)
@@ -137,29 +176,39 @@ void	check_sort(t_stack *stack)
 	}
 }
 
+void	sort_mini(int arg_num, t_stack *stack)
+{
+	if (arg_num == 0 || arg_num == 1)
+		return ;
+	if (arg_num == 2)
+		sort_2(stack, 'a');
+	if (arg_num == 3)
+		sort_3(stack, 'a');
+	if (arg_num == 4)
+		sort_4(stack, 'a');
+	if (arg_num == 5)
+		sort_5(5, stack, 'a');
+}
+
 void	sort_many(int arg_num, t_stack *stack)
 {
-	int	middle;
-	int	small;
-	int	unsorted;
-	int	r_count;
+	//int	big;
+	//int	small;
+	//int	unsorted;
 	t_node	*nd;
 
-	unsorted = arg_num;
-	middle = divide_pos(stack, unsorted, 2);
-	small = divide_pos(stack, unsorted, 1);
-	r_count = divide_3(unsorted, middle, stack, small);
-	a_5_b_other(stack);
-	sort_5(5, stack, 'a');
-	first_insert(stack);
-	nd = stack->head_b;
-	while (stack->head_b != NULL)
-	{
-		insert(stack);
-		//printf("arg_num[%d], stack_a_size[%d], head_a[%d], head_b[%d]\n", arg_num, stack_size(stack, 'a'), stack->head_a->rank, stack->head_b->rank);
-	}
-	check_sort(stack);
-	//printf("fin\n");
+	//printf("🌟sort_many\n");
+	divide_group(arg_num, stack);
+	//unsorted = arg_num;
+	//big = divide_pos(stack, unsorted, 2);
+	//small = divide_pos(stack, unsorted, 1);
+	//divide_3(stack, big, small);
+	//printf("a\n");
+	if (stack->head_a != NULL && stack_size(stack, 'a') > 5)
+		a_5_b_other(arg_num, stack);
+	sort_mini(stack_size(stack, 'a'), stack);
+	//while (stack->head_a != NULL)
+	//	push(stack, 'b');
 	//while (1)
 	//{
 	//	if (stack->head_a == NULL)
@@ -174,24 +223,14 @@ void	sort_many(int arg_num, t_stack *stack)
 	//	printf("💭check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 	//	stack->head_b = stack->head_b->next;
 	//}
-	//unsorted = unsorted_num(stack);
-	//while (unsorted > 10)
-	//{
-	//	sort_middle(stack, unsorted);
-	//	unsorted = unsorted_num(stack);
-	//}
-	//if (unsorted > 5)
-	//	sort_last_10(stack);
-	//unsorted = unsorted_num(stack);
-	////printf("c unsorted[%d]\n", unsorted);
-	//if (unsorted <= 5)
-	//{
-	//	while (unsorted-- > 0)
-	//		push(stack, 'b');
-	//	stack_b_under_5(stack);
-		//printf("d\n");
-	//}
+	//sort_5(5, stack, 'a');
+	first_insert(stack);
+	nd = stack->head_b;
+	while (stack->head_b != NULL)
+		insert(stack);
+	check_sort(stack);
 }
+
 //void	sort_many(int arg_num, t_stack *stack)
 //{
 //	int	middle;
@@ -222,3 +261,31 @@ void	sort_many(int arg_num, t_stack *stack)
 //		stack_b_under_5(stack);
 //		//printf("d\n");
 //	}
+
+//int	divide_3(t_stack *stack, int big, int small)
+//{
+//	t_node	*nd;
+//	int		r_count;
+//	int		size;
+
+//	nd = stack->head_a;
+//	r_count = 0;
+//	size = stack_size(stack, 'a');
+//	while (size-- > 0)
+//	{
+//		if (nd->rank < small)
+//		{
+//			push(stack, 'b');
+//			rotate(stack, 'b');
+//		}
+//		else if (nd->rank < big)
+//			push(stack, 'b');
+//		else
+//		{
+//			rotate(stack, 'a');
+//			r_count++;
+//		}
+//		nd = stack->head_a;
+//	}
+//	return (r_count);
+//}

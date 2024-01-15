@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:25:36 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 22:44:45 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 07:01:38 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ void	check_sorted(t_stack *stack)
 {
 	t_node	*nd;
 
-	nd = stack->head_a;
+	if (stack->head_a != NULL)
+		nd = stack->head_a;
+	else
+		return ;
 	while (nd->next != NULL)
 	{
 		if (nd->rank < nd->next->rank)
@@ -54,6 +57,7 @@ void	check_sorted(t_stack *stack)
 		else
 			return ;
 	}
-	ft_putstr_fd("🚨ERROR🚨: ALREADY SORTED\n", 1);
+	if (stack->head_b == NULL)
+		ft_putstr_fd("🚨ERROR🚨: ALREADY SORTED\n", 1);
 	exit(1);
 }

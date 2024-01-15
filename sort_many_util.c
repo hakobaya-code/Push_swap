@@ -6,13 +6,13 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:26:48 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 00:06:33 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 06:43:26 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	a_5_b_other(t_stack *stack)
+void	a_5_b_other(int arg_num, t_stack *stack)
 {
 	t_node	*nd;
 	t_node	*rank_5;
@@ -27,7 +27,11 @@ void	a_5_b_other(t_stack *stack)
 	while (stack_size(stack, 'a') > 5)
 	{
 		if (nd->rank < rank_5->rank)
+		{
 			push(stack, 'b');
+			if (nd->rank < (arg_num / 2))
+				rotate(stack, 'b');
+		}
 		else
 			rotate(stack, 'a');
 		nd = stack->head_a;

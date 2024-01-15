@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 02:03:30 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 06:44:05 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	digit_1(t_stack *stack);
 void	digit_1_pb(int num1, int num2, t_stack *stack);
 void	digit_10(int arg_num, t_stack *stack);
 void	digit_10_pa(int num, t_stack *stack);
-void	a_5_b_other(t_stack *stack);
+void	a_5_b_other(int arg_num, t_stack *stack);
 void	b_5_and_pa_ra(int arg_num, t_stack *stack);
 void	b_3_and_pa_ra(t_stack *stack);
 
