@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/14 16:22:02 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/15 22:10:59 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ t_stack	*make_stack(int *array)
 	return (stack);
 }
 
+int	count_words(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i] != '\0')
+		i++;
+	return (i);
+}
+
 int	main(int argc, char **argv)
 {
 	int		index;
@@ -41,7 +51,14 @@ int	main(int argc, char **argv)
 	index = 0;
 	if (argc < 2)
 		return (error_argc());
-	array = make_array(argc - 1, argv);
+	if (argc == 2)
+	{
+		argv = ft_split(argv[1], ' ');
+		argc = count_words(argv) + 1;
+		array = make_array(argc - 1, argv, 1);
+	}
+	else
+		array = make_array(argc - 1, argv, 0);
 	stack = make_stack(array);
 	//printf("initialize stack_a [%p]\n", stack->head_a);
 	//printf("initialize stack_b [%p]\n", stack->head_b);
@@ -53,8 +70,6 @@ int	main(int argc, char **argv)
 	array = compaction(array, argc - 1, stack->head_a);
 	//printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
-	//printf("NODE: 🙆‍♀️try swap.\n");
-	//printf("💛sort start\n");
 	sort(argc - 1, stack);
 	//while (1)
 	//{

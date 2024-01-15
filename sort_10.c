@@ -6,69 +6,69 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:50:28 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 14:03:58 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:19:13 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3a2(t_stack *stack)
-{
-	t_node	*nd;
-	int		num1;
-	int		num2;
-	int		num3;
+//void	sort_3a2(t_stack *stack)
+//{
+//	t_node	*nd;
+//	int		num1;
+//	int		num2;
+//	int		num3;
 
-	nd = stack->head_a->next;
-	num1 = nd->prev->num;
-	num2 = nd->num;
-	num3 = nd->next->num;
-	if (num1 < num2 && num2 < num3) // 123
-	{
-		ra(stack);
-		sb(stack);
-	}
-	else if (num1 < num3 && num2 > num3) // 132
-		ra(stack);
-	else if (num2 < num1 && num1 < num3) // 213
-		rra(stack);
-	else if (num1 < num2 && num1 > num3) // 231
-		sa(stack);
-	else if (num1 > num2 && num2 < num3) // 312
-	{
-		rra(stack);
-		sa(stack);
-	}
-}
+//	nd = stack->head_a->next;
+//	num1 = nd->prev->num;
+//	num2 = nd->num;
+//	num3 = nd->next->num;
+//	if (num1 < num2 && num2 < num3) // 123
+//	{
+//		ra(stack);
+//		sb(stack);
+//	}
+//	else if (num1 < num3 && num2 > num3) // 132
+//		ra(stack);
+//	else if (num2 < num1 && num1 < num3) // 213
+//		rra(stack);
+//	else if (num1 < num2 && num1 > num3) // 231
+//		sa(stack);
+//	else if (num1 > num2 && num2 < num3) // 312
+//	{
+//		rra(stack);
+//		sa(stack);
+//	}
+//}
 
-void	sort_3b2(t_stack *stack)
-{
-	t_node	*nd;
-	int		num1;
-	int		num2;
-	int		num3;
+//void	sort_3b2(t_stack *stack)
+//{
+//	t_node	*nd;
+//	int		num1;
+//	int		num2;
+//	int		num3;
 
-	nd = stack->head_b->next;
-	num1 = nd->prev->num;
-	num2 = nd->num;
-	num3 = nd->next->num;
-	if (num1 < num3 && num2 > num3) // 132
-	{
-		rrb(stack);
-		sb(stack);
-	}
-	else if (num2 < num1 && num1 < num3) // 213
-		sb(stack);
-	else if (num1 < num2 && num1 > num3) // 231
-		rrb(stack);
-	else if (num1 > num2 && num2 < num3) // 312
-		rb(stack);
-	else if (num1 > num2 && num2 > num3)
-	{
-		rb(stack);
-		sb(stack);
-	}
-}
+//	nd = stack->head_b->next;
+//	num1 = nd->prev->num;
+//	num2 = nd->num;
+//	num3 = nd->next->num;
+//	if (num1 < num3 && num2 > num3) // 132
+//	{
+//		rrb(stack);
+//		sb(stack);
+//	}
+//	else if (num2 < num1 && num1 < num3) // 213
+//		sb(stack);
+//	else if (num1 < num2 && num1 > num3) // 231
+//		rrb(stack);
+//	else if (num1 > num2 && num2 < num3) // 312
+//		rb(stack);
+//	else if (num1 > num2 && num2 > num3)
+//	{
+//		rb(stack);
+//		sb(stack);
+//	}
+//}
 
 //void	up_push(int a_size, int upper, t_stack *stack)
 //{
@@ -102,23 +102,23 @@ void	sort_10_6(t_stack *stack)
 	nd = stack->head_a;
 	//up_push(6, 4, stack);
 	count = 6;
-	while (count > 0 && stack_a_size(stack) > 4)
+	while (count > 0 && stack_size(stack, 'a') > 4)
 	{
 		if (nd->rank >= 4)
-			pb(stack);
+			push(stack, 'b');
 		else
-			ra(stack);
+			rotate(stack, 'a');
 		count--;
 		nd = stack->head_a;
 	}
-	sort_4(4, stack);
-	pa(stack);
-	pa(stack);
+	sort_4(stack, 'a');
+	push(stack, 'a');
+	push(stack, 'a');
 	nd = stack->head_a;
 	if (nd->rank > nd->next->rank)
-		sa(stack);
-	ra(stack);
-	ra(stack);
+		swap(stack, 'a');
+	rotate(stack, 'a');
+	rotate(stack, 'a');
 	return ;
 }
 
@@ -133,21 +133,21 @@ void	sort_10(int arg_num, t_stack *stack, char c)
 		nd = stack->head_b;
 	count = arg_num;
 	//up_push(arg_num, 6, stack);
-	while (count > 0 && stack_a_size(stack) > 6)
+	while (count > 0 && stack_size(stack, 'a') > 6)
 	{
 		if (nd->rank >= 6)
-			pb(stack);
+			push(stack, 'b');
 		else
-			ra(stack);
+			rotate(stack, 'a');
 		count--;
 		nd = stack->head_a;
 	}
 	if (arg_num == 10)
-		sort_4b(stack);
+		sort_4(stack, 'b');
 	if (arg_num == 9)
-		sort_3b2(stack);
+		sort_3(stack, 'b');
 	if (arg_num == 8)
-		sort_2b(stack);
+		sort_2(stack, 'b');
 	sort_10_6(stack);
 	//printf("🌟🌟🌟\n");
 	return ;

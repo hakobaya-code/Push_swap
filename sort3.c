@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:06:05 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 14:37:07 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:58:46 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	sort_3(t_stack *stack, char c)
 	num1 = nd->prev->rank;
 	num2 = nd->rank;
 	num3 = nd->next->rank;
+	//printf("enter sort_3\n");
 	if (num1 < num2 && num2 < num3) // 123
 		return ;
 	else if (num1 < num3 && num2 > num3) // 132

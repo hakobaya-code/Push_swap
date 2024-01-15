@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/14 19:09:32 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/15 21:12:56 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	sort(int arg_num, t_stack *stack)
 		sort_4(stack, 'a');
 	else if (arg_num == 5)
 		sort_5(arg_num, stack, 'a');
+	else if (arg_num < 10)
+		sort_10(arg_num, stack, 'a');
 	else
-		sort_many(arg_num, stack, 'a');
+		sort_many(arg_num, stack);
 }
