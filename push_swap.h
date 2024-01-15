@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 21:12:30 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 02:03:30 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ int		error_argc(void);
 void	error_overint(void);
 void	error_same_num(int *array);
 int		check_argv(int argc, char **argv, int flag);
+void	check_sorted(t_stack *stack);
 int		*make_array(int arg_num, char **argv, int flag);
+int		*make_split_array(int *argc, char **argv);
 char	**split_array(char **argv);
 t_node	*initialize_list(int num);
 t_node	*initialize_stackb(void);
@@ -50,6 +52,7 @@ void	*add_node(t_node *node, int num);
 int		*compaction(int *array, int len, t_node *node);
 
 // util
+int		count_words(char **argv);
 t_node	*last_nd(t_stack *stack, char c);
 void	top_push(int arg_num, int pos, t_stack *stack, char c);
 int		node_position(t_stack *stack, t_node *node, char c);
@@ -92,7 +95,7 @@ void	digit_1_pb(int num1, int num2, t_stack *stack);
 void	digit_10(int arg_num, t_stack *stack);
 void	digit_10_pa(int num, t_stack *stack);
 void	a_5_b_other(t_stack *stack);
-void	b_5_and_pa_ra(t_stack *stack);
+void	b_5_and_pa_ra(int arg_num, t_stack *stack);
 void	b_3_and_pa_ra(t_stack *stack);
 
 //sort_many util
@@ -107,7 +110,10 @@ void	stack_b_under_5(t_stack *stack);
 void	sort_last_10(t_stack *stack);
 
 //sort
+void	s_r(t_stack *stack, char c);
+void	r_s(t_stack *stack, char c);
 void	sort(int arg_num, t_stack *stack);
+void	sort_rev(int arg_num, t_stack *stack, char c);
 void	sort_2(t_stack *stack, char c);
 void	sort_2_rev(t_stack *stack, char c);
 void	sort_3(t_stack *stack, char c);
@@ -115,9 +121,13 @@ void	sort_3_rev(t_stack *stack, char c);
 void	sort_4(t_stack *stack, char c);
 void	sort_4_rev(t_stack *stack, char c);
 void	sort_5(int arg_num, t_stack *stack, char c);
-void	sort_5_rev(int arg_num, t_stack *stack, char c);
+void	sort_5_rev(t_stack *stack, char c);
+void	sort_5b_rev(int arg_num, t_stack *stack);
 void	sort_10(int arg_num, t_stack *stack, char c);
+void	sort_15(int arg_num, t_stack *stack);
 void	sort_many(int arg_num, t_stack *stack);
 void	sort_middle(t_stack *stack, int unsorted);
+void	first_insert(t_stack *stack);
+void	insert(t_stack *stack);
 
 #endif

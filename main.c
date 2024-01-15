@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 22:10:59 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/15 22:45:24 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ t_stack	*make_stack(int *array)
 	if (!stack)
 		exit(1);
 	stack_a = initialize_list(array[0]);
-	//stack_b = initialize_stackb();
 	stack_b = NULL;
 	stack->head_a = stack_a;
 	stack->head_b = stack_b;
@@ -50,25 +49,18 @@ int	main(int argc, char **argv)
 
 	index = 0;
 	if (argc < 2)
-		return (error_argc());
+		return (0);
 	if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		argc = count_words(argv) + 1;
-		array = make_array(argc - 1, argv, 1);
-	}
+		array = make_split_array(&argc, argv);
 	else
 		array = make_array(argc - 1, argv, 0);
 	stack = make_stack(array);
-	//printf("initialize stack_a [%p]\n", stack->head_a);
-	//printf("initialize stack_b [%p]\n", stack->head_b);
 	while (index < argc - 2)
 	{
 		index++;
 		nd = add_node(stack->head_a, array[index]);
 	}
 	array = compaction(array, argc - 1, stack->head_a);
-	//printf("NODE: 🙆‍♀️add_node done.\n");
 	free(array);
 	sort(argc - 1, stack);
 	//while (1)

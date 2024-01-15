@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:50:28 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 21:19:13 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 00:26:11 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,61 @@
 //	}
 //}
 
+//void	rem_sort(int arg_num, t_stack *stack)
+//{
+//	t_node	*nd;
+
+//	nd = stack->head_a;
+//	arg_num -= 10;
+//	while (arg_num > 0)
+//	{
+//		if (nd->rank > nd->next->rank)
+//			nd = nd->next;
+//		else
+//			break ;
+//	}
+//}
+
+void	sort_15(int arg_num, t_stack *stack)
+{
+	int	count;
+	int	size;
+
+	a_5_b_other(stack);
+	sort_5(5, stack, 'a');
+	b_5_and_pa_ra(arg_num, stack);
+	while ((arg_num - 10) > 0)
+	{
+		push(stack, 'b');
+		rotate(stack, 'b');
+		arg_num--;
+	}
+	count = 5;
+	while (count-- > 0)
+		push(stack, 'a');
+	if (stack->head_b == NULL)
+		return ;
+	size = stack_size(stack, 'b');
+	sort_rev(size, stack, 'b');
+	while (size-- > 0)
+		push(stack, 'a');
+}
+
+	//while (1)
+	//{
+	//	if (stack->head_a == NULL)
+	//		break ;
+	//	printf("💓check node stack_a *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_a, stack->head_a->num, stack->head_a->rank, stack->head_a->prev, stack->head_a->next);
+	//	stack->head_a = stack->head_a->next;
+	//}
+	//while (1)
+	//{
+	//	if (stack->head_b == NULL)
+	//		break ;
+	//	printf("💭check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
+	//	stack->head_b = stack->head_b->next;
+	//}
+
 void	sort_10_6(t_stack *stack)
 {
 	t_node	*nd;
@@ -132,7 +187,6 @@ void	sort_10(int arg_num, t_stack *stack, char c)
 	else
 		nd = stack->head_b;
 	count = arg_num;
-	//up_push(arg_num, 6, stack);
 	while (count > 0 && stack_size(stack, 'a') > 6)
 	{
 		if (nd->rank >= 6)
@@ -149,7 +203,6 @@ void	sort_10(int arg_num, t_stack *stack, char c)
 	if (arg_num == 8)
 		sort_2(stack, 'b');
 	sort_10_6(stack);
-	//printf("🌟🌟🌟\n");
 	return ;
 }
 

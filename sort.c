@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 21:12:56 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/15 23:58:53 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,6 @@ void	sort_2(t_stack *stack, char c)
 		swap(stack, c);
 }
 
-void	sort_2_rev(t_stack *stack, char c)
-{
-	t_node	*nd;
-	int		num1;
-	int		num2;
-
-	if (c == 'a')
-		nd = stack->head_a;
-	else
-		nd = stack->head_b;
-	num1 = nd->num;
-	num2 = nd->next->num;
-	if (num1 > num2)
-		return ;
-	else
-		swap(stack, c);
-}
-
 void	sort_4(t_stack *stack, char c)
 {
 	t_node	*min_node;
@@ -68,21 +50,9 @@ void	sort_4(t_stack *stack, char c)
 	return ;
 }
 
-void	sort_4_rev(t_stack *stack, char c)
-{
-	t_node	*max_node;
-	int		pos;
-
-	max_node = find_max_node(stack, c);
-	pos = node_position(stack, max_node, c);
-	top_push(4, pos, stack, c);
-	sort_3_rev(stack, c);
-	push(stack, c);
-	return ;
-}
-
 void	sort(int arg_num, t_stack *stack)
 {
+	check_sorted(stack);
 	if (arg_num == 2)
 		sort_2(stack, 'a');
 	else if (arg_num == 3)
@@ -93,6 +63,8 @@ void	sort(int arg_num, t_stack *stack)
 		sort_5(arg_num, stack, 'a');
 	else if (arg_num < 10)
 		sort_10(arg_num, stack, 'a');
+	else if (arg_num <= 15)
+		sort_15(arg_num, stack);
 	else
 		sort_many(arg_num, stack);
 }

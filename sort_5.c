@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 17:25:04 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/14 17:11:53 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 00:01:12 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	sort_5b(int arg_num, t_stack *stack)
 	}
 }
 
-static void	sort_5b_rev(int arg_num, t_stack *stack)
+void	sort_5b_rev(int arg_num, t_stack *stack)
 {
 	t_node	*nd;
 	t_node	*max;
@@ -107,25 +107,7 @@ void	sort_5(int arg_num, t_stack *stack, char c)
 		swap(stack, c);
 }
 
-void	sort_5_rev(int arg_num, t_stack *stack, char c)
-{
-	t_node	*nd;
 
-	arg_num = 5;
-	if (c == 'a')
-		ft_putstr_fd("🚨ERROR🚨:sort_5_rev not exit 'a'\n", 1);
-	else
-		sort_5b_rev(5, stack);
-	sort_3_rev(stack, 'b');
-	push(stack, 'b');
-	push(stack, 'b');
-	if (c == 'a')
-		nd = stack->head_a;
-	else
-		nd = stack->head_b;
-	if (nd->rank < nd->next->rank)
-		swap(stack, 'b');
-}
 
 //void	sort_5a_rev(int arg_num, t_stack *stack)
 //{
