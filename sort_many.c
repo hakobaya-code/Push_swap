@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:21:50 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 07:16:05 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 07:23:11 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,18 +101,17 @@ void	sort_last_10(t_stack *stack)
 void	divide_3(int arg_num, t_stack *stack, int big, int small)
 {
 	t_node	*nd;
-	int		r_count;
 	int		size;
 
 	nd = stack->head_a;
-	r_count = 0;
+	arg_num = 1;
 	//printf("🌟enter divide_3\n");
 	size = stack_size(stack, 'a');
 	while (size-- > 0)
 	{
-		if (nd->rank == (arg_num - 1))
-			rotate(stack, 'a');
-		else if (nd->rank / 20 == small)
+		//if (nd->rank == (arg_num - 1))
+		//	rotate(stack, 'a');
+		if (nd->rank / 20 == small)
 		{
 			push(stack, 'b');
 			rotate(stack, 'b');
@@ -120,10 +119,7 @@ void	divide_3(int arg_num, t_stack *stack, int big, int small)
 		else if (nd->rank / 20 == big)
 			push(stack, 'b');
 		else
-		{
 			rotate(stack, 'a');
-			r_count++;
-		}
 		nd = stack->head_a;
 	}
 }
@@ -138,7 +134,7 @@ void	divide_group(int arg_num, t_stack *stack)
 	big = (group / 2);
 	small = (group / 2) - 1;
 	//printf("🌟group[%d]\n", group);
-	while (big < group)
+	while (big < group - 1)
 	{
 		//printf("big[%d] small[%d]\n", big, small);
 		divide_3(arg_num, stack, big, small);
@@ -207,8 +203,6 @@ void	sort_many(int arg_num, t_stack *stack)
 	if (stack->head_a != NULL && stack_size(stack, 'a') > 5)
 		a_5_b_other(arg_num, stack);
 	sort_mini(stack_size(stack, 'a'), stack);
-	//while (stack->head_a != NULL)
-	//	push(stack, 'b');
 	//while (1)
 	//{
 	//	if (stack->head_a == NULL)
@@ -223,7 +217,6 @@ void	sort_many(int arg_num, t_stack *stack)
 	//	printf("💭check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 	//	stack->head_b = stack->head_b->next;
 	//}
-	//sort_5(5, stack, 'a');
 	first_insert(stack);
 	nd = stack->head_b;
 	while (stack->head_b != NULL)

@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:55:32 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 22:25:07 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:36:05 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,18 @@ int	*make_array(int arg_num, char **argv, int flag)
 int	*make_split_array(int *argc, char **argv)
 {
 	int	*array;
+	int	i;
 
 	argv = ft_split(argv[1], ' ');
 	*argc = count_words(argv) + 1;
 	array = make_array(*argc - 1, argv, 1);
+	i = 0;
+	while (argv[i] != NULL)
+	{
+		free(argv[i]);
+		argv[i] = NULL;
+		i++;
+	}
+	free(argv);
 	return (array);
 }

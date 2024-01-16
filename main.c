@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 15:37:52 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 07:10:25 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:38:08 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ int	main(int argc, char **argv)
 	array = compaction(array, argc - 1, stack->head_a);
 	free(array);
 	sort(argc - 1, stack);
+	free_stack(stack);
+	return (0);
+}
+
 	//while (1)
 	//{
 	//	if (stack->head_a == NULL)
@@ -77,8 +81,6 @@ int	main(int argc, char **argv)
 	//	printf("💭check node stack_b *** node [%p], num [%d], rank[%d], prev [%p], next[%p]\n", stack->head_b, stack->head_b->num, stack->head_b->rank, stack->head_b->prev, stack->head_b->next);
 	//	stack->head_b = stack->head_b->next;
 	//}
-	return (0);
-}
 
 //__attribute__((destructor))
 //static void	destructor(void)

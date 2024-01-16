@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 06:44:05 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 08:05:21 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ t_node	*find_next_max_node(t_stack *stack, char c, t_node *max);
 int		calc_min(t_stack *stack);
 int		calc_second_min(t_stack *stack, int min);
 int		stack_size(t_stack *stack, char c);
+void	free_stack(t_stack *stack);
+void	free_node(t_node *nd);
 
 // sort
 

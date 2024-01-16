@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 23:34:21 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/11 19:59:22 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:34:54 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ int	*compaction(int *array, int len, t_node *node)
 		i++;
 		node = node->next;
 	}
+	free(copy);
 	return (array);
 }
