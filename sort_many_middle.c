@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 19:14:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/14 19:17:15 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:45:59 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	sort_middle(t_stack *stack, int unsorted)
 	while (r_count-- > 0)
 		rev_rotate(stack, 'a');
 	if (stack_size(stack, 'b') > 5)
-		b_5_and_pa_ra(stack);
+		b_5_and_pa_ra(5, stack);
 	else
 		stack_b_under_5(stack);
 }

@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:50:28 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 00:26:11 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 19:44:49 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	sort_15(int arg_num, t_stack *stack)
 	int	count;
 	int	size;
 
-	a_5_b_other(stack);
+	a_5_b_other(arg_num, stack);
 	sort_5(5, stack, 'a');
 	b_5_and_pa_ra(arg_num, stack);
 	while ((arg_num - 10) > 0)
