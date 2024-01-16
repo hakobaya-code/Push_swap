@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 22:24:49 by hakobaya          #+#    #+#             */
-/*   Updated: 2023/06/17 09:18:20 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/17 04:01:50 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	ft_isalnum(int c)
 //	return (0);
 //}
 
-int	main(void)
-{
-	int	alnum;
+//int	main(void)
+//{
+//	int	alnum;
 
-	alnum = isalnum('a');
-	printf("%d\n", alnum);
-}
+//	alnum = isalnum('a');
+//	printf("%d\n", alnum);
+//}
