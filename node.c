@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:23:23 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 20:44:01 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:08:02 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ t_node	*initialize_stackb(void)
 	first_node = (t_node *)malloc(sizeof(t_node));
 	if (!first_node)
 		return (NULL);
-	first_node->num = (int)NULL;
 	first_node->next = NULL;
 	first_node->prev = NULL;
-	first_node->rank = (int)NULL;
 	return (first_node);
 }
 

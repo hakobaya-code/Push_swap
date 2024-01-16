@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:55:32 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 19:36:05 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/17 01:54:24 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,39 +30,41 @@ void	check_same_num(int *array, int arg_num)
 		}
 		i++;
 	}
-	return ;
 }
 
-void	check_argv_all(char **argv, int i, long num)
+void	check_argv_all(char **argv, int i, long long num, int minus)
 {
 	int	j;
-	int	minus;
 
-	minus = 1;
 	j = 0;
-	if (argv[i][j] == '-')
+	if (argv[i][j] == '\0')
+		error_invalid_args();
+	if (argv[i][j] == '-' || argv[i][j] == '+')
 	{
-		minus *= -1;
+		if (argv[i][j] == '-')
+			minus *= -1;
 		j++;
+		if (argv[i][j] == '\0')
+			error_invalid_args();
 	}
 	num = 0;
 	while (argv[i][j] >= '0' && argv[i][j] <= '9')
 	{
 		num = num * 10 + (argv[i][j] - '0');
+		if (num > INT_MAX || (num * -1) < INT_MIN)
+			error_invalid_args();
 		j++;
 	}
 	num *= minus;
-	if (num > INT_MAX || num < INT_MIN)
-		error_overint();
-	if (argv[i][j] != '\0')
-		error_notdigit();
-	//printf("[%d] %ld\n", i, num);
+	if (num > INT_MAX || num < INT_MIN || argv[i][j] != '\0')
+		error_invalid_args();
 }
 
 int	check_argv(int argc, char **argv, int flag)
 {
-	int		i;
-	long	num;
+	int			i;
+	int			minus;
+	long long	num;
 
 	if (flag == 1)
 	{
@@ -72,9 +74,10 @@ int	check_argv(int argc, char **argv, int flag)
 	else
 		i = 1;
 	num = 0;
+	minus = 1;
 	while (i < argc)
 	{
-		check_argv_all(argv, i, num);
+		check_argv_all(argv, i, num, minus);
 		i++;
 	}
 	return (0);

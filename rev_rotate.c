@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 13:17:46 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 18:55:52 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:10:15 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,10 @@ static void	rra(t_stack *stack)
 	nd1 = stack->head_a;
 	nd2 = last_nd(stack, 'a');
 	nd2->prev->next = NULL;
-	//printf("💛nd1 [%p] num[%d] prev[%p] next[%p]\n", nd1, nd1->num, nd1->prev, nd1->next);
-	//printf("💛nd2->prev [%p] num[%d] prev[%p] next[%p]\n", nd2->prev->next, nd2->prev->num, nd2->prev->prev, nd2->prev->next);
-	//printf("💛nd2 [%p] num[%d] prev[%p] next[%p]\n", nd2, nd2->num, nd2->prev, nd2->next);
 	nd1->prev = nd2;
 	nd2->prev = NULL;
 	nd2->next = nd1;
 	stack->head_a = nd2;
-
-	//printf("💛nd1 [%p] num[%d] prev[%p] next[%p]\n", nd1, nd1->num, nd1->prev, nd1->next);
-	//printf("💛nd2 [%p] num[%d] prev[%p] next[%p]\n", nd2, nd2->num, nd2->prev, nd2->next);
-	//printf("💛head_a [%p] num[%d] prev[%p] next[%p]\n", head_a, head_a->num, head_a->prev, head_a->next);
 }
 
 static void	rrb(t_stack *stack)
@@ -45,16 +38,10 @@ static void	rrb(t_stack *stack)
 	nd1 = stack->head_b;
 	nd2 = last_nd(stack, 'b');
 	nd2->prev->next = NULL;
-	//printf("💛nd1 [%p] num[%d] prev[%p] next[%p]\n", nd1, nd1->num, nd1->prev, nd1->next);
-	//printf("💛nd2->prev [%p] num[%d] prev[%p] next[%p]\n", nd2->prev->next, nd2->prev->num, nd2->prev->prev, nd2->prev->next);
-	//printf("💛nd2 [%p] num[%d] prev[%p] next[%p]\n", nd2, nd2->num, nd2->prev, nd2->next);
 	nd1->prev = nd2;
 	nd2->prev = NULL;
 	nd2->next = nd1;
 	stack->head_b = nd2;
-//	printf("💛nd1 [%p] num[%d] prev[%p] next[%p]\n", nd1, nd1->num, nd1->prev, nd1->next);
-//	printf("💛nd2 [%p] num[%d] prev[%p] next[%p]\n", nd2, nd2->num, nd2->prev, nd2->next);
-//	printf("💛head_a [%p] num[%d] prev[%p] next[%p]\n", head_b, head_b->num, head_b->prev, head_b->next);
 }
 
 void	rrr(t_stack *stack)

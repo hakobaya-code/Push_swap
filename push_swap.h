@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 08:05:21 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/17 01:52:50 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-# define DEBUG_PRINTF() \
-	printf("file : %s, line : %s, func : %d\n", __FILE__, __func__, __LINE__);
 
 typedef struct s_node
 {
@@ -37,7 +34,7 @@ typedef struct s_stack
 }					t_stack;
 
 void	error_notdigit(void);
-int		error_argc(void);
+void	error_invalid_args(void);
 void	error_overint(void);
 void	error_same_num(int *array);
 int		check_argv(int argc, char **argv, int flag);
@@ -66,30 +63,20 @@ int		stack_size(t_stack *stack, char c);
 void	free_stack(t_stack *stack);
 void	free_node(t_node *nd);
 
-// sort
-
 // swap
 void	swap(t_stack *stack, char c);
 void	ss(t_stack *stack);
-//static void			sa(t_stack *stack);
-//static void			sb(t_stack *stack);
 
 // rotate
 void	rotate(t_stack *stack, char c);
 void	rr(t_stack *stack);
-//static void			ra(t_stack *stack);
-//static void			rb(t_stack *stack);
 
 // rev_rotate
 void	rev_rotate(t_stack *stack, char c);
 void	rrr(t_stack *stack);
-//static void			rra(t_stack *stack);
-//static void			rrb(t_stack *stack);
 
 // push
 void	push(t_stack *stack, char c);
-//static void		pa(t_stack *stack);
-//static void		pb(t_stack *stack);
 
 //sort util
 void	digit_1(t_stack *stack);
@@ -110,6 +97,8 @@ int		unsorted_min5(t_stack *stack, int unsorted);
 int		min5_pb(t_stack *stack, int unsorted, int min5);
 void	stack_b_under_5(t_stack *stack);
 void	sort_last_10(t_stack *stack);
+void	check_sort(t_stack *stack);
+int		opt(t_stack *stack, int a, int a_prev);
 
 //sort
 void	s_r(t_stack *stack, char c);
@@ -131,5 +120,6 @@ void	sort_many(int arg_num, t_stack *stack);
 void	sort_middle(t_stack *stack, int unsorted);
 void	first_insert(t_stack *stack);
 void	insert(t_stack *stack);
+int		insert_chunk(t_stack *stack, int a_prev);
 
 #endif

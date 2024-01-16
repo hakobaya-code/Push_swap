@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 00:33:30 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 03:44:51 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 23:10:38 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,14 @@ void	top_a_pos(t_stack *stack, t_node *a_pos)
 	}
 }
 
-
 t_node	*find_a_pos(t_stack *stack)
 {
 	int		b;
 	t_node	*a_pos;
 
-	//if (stack->head_b != NULL)
-	//	return (a_pos);
 	b = stack->head_b->rank;
 	a_pos = stack->head_a;
 	a_pos = find_next_min_node(stack, 'a', stack->head_b);
-	//while (1)
-	//{
-	//	if (a_pos->rank > b)
-	//		return (a_pos);
-	//	a_pos = a_pos->next;
-	//}
-	//printf("a_pos->rank[%d] head_b->rank[%d]\n", a_pos->rank, b);
 	return (a_pos);
 }
 
@@ -85,15 +75,18 @@ int	insert_chunk(t_stack *stack, int a_prev)
 
 void	insert(t_stack *stack)
 {
-	//t_node	*b;
 	t_node	*a_pos;
 	t_node	*nd;
 	int		pa_count;
 
 	a_pos = find_a_pos(stack);
-	nd = stack->head_a;
 	top_a_pos(stack, a_pos);
 	pa_count = insert_chunk(stack, last_nd(stack, 'a')->rank);
+	if (pa_count == 1)
+	{
+		nd = stack->head_a;
+		pa_count = opt(stack, nd->rank, last_nd(stack, 'a')->rank);
+	}
 	while (pa_count > 0)
 	{
 		push(stack, 'a');

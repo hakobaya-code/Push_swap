@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 23:55:33 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 00:11:29 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:23:47 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,18 @@ void	sort_3_rev(t_stack *stack, char c)
 	num1 = nd->prev->rank;
 	num2 = nd->rank;
 	num3 = nd->next->rank;
-	if (num1 < num2 && num2 < num3) // 123
+	if (num1 < num2 && num2 < num3)
 		r_s(stack, c);
-	else if (num1 < num3 && num2 > num3) // 132
+	else if (num1 < num3 && num2 > num3)
 		rotate(stack, c);
-	else if (num2 < num1 && num1 < num3) // 213
+	else if (num2 < num1 && num1 < num3)
 		rev_rotate(stack, c);
-	else if (num1 < num2 && num1 > num3) // 231
+	else if (num1 < num2 && num1 > num3)
 		swap(stack, c);
-	else if (num1 > num2 && num2 < num3) // 312
+	else if (num1 > num2 && num2 < num3)
 		s_r(stack, c);
 	else if (num1 > num2 && num2 > num3)
-		return ; // 321
+		return ;
 }
 
 void	sort_4_rev(t_stack *stack, char c)
