@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/17 01:52:50 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:42:15 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,10 @@ void	digit_1_pb(int num1, int num2, t_stack *stack);
 void	digit_10(int arg_num, t_stack *stack);
 void	digit_10_pa(int num, t_stack *stack);
 void	a_5_b_other(int arg_num, t_stack *stack);
+void	a_3_b_other(int arg_num, t_stack *stack);
 void	b_5_and_pa_ra(int arg_num, t_stack *stack);
 void	b_3_and_pa_ra(t_stack *stack);
+t_node	*max_5(t_stack *stack);
 
 //sort_many util
 int		half_pb(int unsorted, int half, t_stack *stack, int quarter);
@@ -99,6 +101,9 @@ void	stack_b_under_5(t_stack *stack);
 void	sort_last_10(t_stack *stack);
 void	check_sort(t_stack *stack);
 int		opt(t_stack *stack, int a, int a_prev);
+char	count_operations(t_stack *stack);
+void	opt_rrb(t_stack *stack);
+void	choice(t_stack *stack);
 
 //sort
 void	s_r(t_stack *stack, char c);

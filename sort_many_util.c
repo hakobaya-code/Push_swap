@@ -6,11 +6,50 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 15:26:48 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 20:17:27 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:41:30 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	a_3_b_other(int arg_num, t_stack *stack)
+{
+	t_node	*nd;
+	t_node	*rank_3;
+	int		count;
+
+	nd = stack->head_a;
+	rank_3 = find_max_node(stack, 'a');
+	count = 2;
+	while (count-- > 0)
+		rank_3 = find_next_max_node(stack, 'a', rank_3);
+	while (stack_size(stack, 'a') > 5)
+	{
+		if (nd->rank < rank_3->rank)
+		{
+			push(stack, 'b');
+			if (nd->rank < (arg_num / 2))
+				rotate(stack, 'b');
+		}
+		else
+			rotate(stack, 'a');
+		nd = stack->head_a;
+	}
+}
+
+t_node	*max_5(t_stack *stack)
+{
+	t_node	*nd;
+	t_node	*rank_5;
+	int		count;
+
+	nd = stack->head_a;
+	rank_5 = find_max_node(stack, 'a');
+	count = 4;
+	while (count-- > 0)
+		rank_5 = find_next_max_node(stack, 'a', rank_5);
+	return (rank_5);
+}
 
 void	a_5_b_other(int arg_num, t_stack *stack)
 {
