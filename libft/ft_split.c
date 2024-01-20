@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 04:39:39 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/17 04:11:10 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:32:53 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,9 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	num = c_count(s, c) + 1;
-	if (c_count(s ,c) == 0)
+	if (c_count(s, c) == 0)
 	{
-		ft_putstr_fd("ERROR\n", 2);
+		ft_putstr_fd("🚨ERROR🚨\n", 2);
 		exit(1);
 	}
 	sp = ft_calloc(num, sizeof(char *));

@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:23:23 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 20:08:02 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:41:53 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_node	*initialize_list(int num)
 
 	first_node = (t_node *)malloc(sizeof(t_node));
 	if (!first_node)
-		return (NULL);
+		exit(1);
 	first_node->num = num;
 	first_node->next = NULL;
 	first_node->prev = NULL;
@@ -32,7 +32,7 @@ t_node	*initialize_stackb(void)
 
 	first_node = (t_node *)malloc(sizeof(t_node));
 	if (!first_node)
-		return (NULL);
+		exit(1);
 	first_node->next = NULL;
 	first_node->prev = NULL;
 	return (first_node);
@@ -56,7 +56,7 @@ void	*add_node(t_node *node, int num)
 		return (NULL);
 	new_nd = (t_node *)malloc(sizeof(t_node));
 	if (!new_nd)
-		return (NULL);
+		exit(1);
 	nd = last_node(node);
 	new_nd->num = num;
 	new_nd->rank = 0;

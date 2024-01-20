@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 15:55:32 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/17 01:54:24 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:38:47 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void	check_argv_all(char **argv, int i, long long num, int minus)
 	while (argv[i][j] >= '0' && argv[i][j] <= '9')
 	{
 		num = num * 10 + (argv[i][j] - '0');
-		if (num > INT_MAX || (num * -1) < INT_MIN)
-			error_invalid_args();
+		if (num > 2147483648)
+			break ;
 		j++;
 	}
 	num *= minus;

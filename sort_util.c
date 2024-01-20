@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 22:06:09 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/12 17:20:23 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:27:29 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,34 @@ void	top_push(int arg_num, int pos, t_stack *stack, char c)
 		top_push_b(arg_num, pos, stack);
 }
 
-int	node_position(t_stack *stack, t_node *node, char c)
+t_node	*max_5(t_stack *stack)
 {
-	int		pos;
-	t_node	*rel_nd;
+	t_node	*nd;
+	t_node	*rank_5;
+	int		count;
 
+	nd = stack->head_a;
+	rank_5 = find_max_node(stack, 'a');
+	count = 4;
+	while (count-- > 0)
+		rank_5 = find_next_max_node(stack, 'a', rank_5);
+	return (rank_5);
+}
+
+int	stack_size(t_stack *stack, char c)
+{
+	int		size;
+	t_node	*nd;
+
+	size = 1;
 	if (c == 'a')
-		rel_nd = stack->head_a;
+		nd = stack->head_a;
 	else
-		rel_nd = stack->head_b;
-	pos = 0;
-	while (rel_nd != node && rel_nd->next != NULL)
+		nd = stack->head_b;
+	while (nd->next != NULL)
 	{
-		rel_nd = rel_nd->next;
-		pos++;
+		nd = nd->next;
+		size++;
 	}
-	return (pos);
+	return (size);
 }

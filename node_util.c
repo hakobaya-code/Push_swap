@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 14:10:35 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 20:08:44 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:20:45 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,36 +25,60 @@ t_node	*last_nd(t_stack *stack, char c)
 	return (nd);
 }
 
-int	calc_min(t_stack *stack)
+int	node_position(t_stack *stack, t_node *node, char c)
 {
-	int		min;
-	t_node	*nd;
+	int		pos;
+	t_node	*rel_nd;
 
-	nd = stack->head_a;
-	min = nd->rank;
-	while (nd->next != NULL)
+	if (c == 'a')
+		rel_nd = stack->head_a;
+	else
+		rel_nd = stack->head_b;
+	pos = 0;
+	while (rel_nd != node && rel_nd->next != NULL)
 	{
-		if (min > nd->next->rank)
-			min = nd->next->rank;
-		nd = nd ->next;
+		rel_nd = rel_nd->next;
+		pos++;
 	}
-	return (min);
+	return (pos);
 }
 
-int	calc_second_min(t_stack *stack, int min)
+t_node	*find_a_pos(t_stack *stack)
 {
-	int		second_min;
+	int		b;
+	t_node	*a_pos;
+
+	b = stack->head_b->rank;
+	a_pos = stack->head_a;
+	a_pos = find_next_min_node(stack, 'a', stack->head_b);
+	return (a_pos);
+}
+
+t_node	*find_b_pos(t_stack *stack)
+{
+	int		a;
+	t_node	*b_pos;
+
+	a = stack->head_a->rank;
+	b_pos = stack->head_b;
+	b_pos = find_next_max_node(stack, 'b', stack->head_a);
+	return (b_pos);
+}
+
+int	find_pos(t_stack *stack, t_node *max, char c)
+{
+	int		count;
 	t_node	*nd;
 
-	nd = stack->head_a;
-	second_min = nd->rank;
-	if (second_min == min)
-		second_min = nd->next->rank;
-	while (nd->next != NULL)
+	count = 0;
+	if (c == 'a')
+		nd = stack->head_a;
+	else
+		nd = stack->head_b;
+	while (nd->rank != max->rank)
 	{
-		if (second_min > nd->next->rank && nd->next->rank != min)
-			second_min = nd->next->rank;
 		nd = nd->next;
+		count++;
 	}
-	return (second_min);
+	return (count);
 }

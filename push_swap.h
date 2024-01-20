@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 15:26:25 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/19 14:42:15 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:47:21 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_node	*initialize_list(int num);
 t_node	*initialize_stackb(void);
 t_node	*last_node(t_node *node);
 void	*add_node(t_node *node, int num);
-int		*compaction(int *array, int len, t_node *node);
+void	compaction(int *array, int len, t_node *node);
 
 // util
 int		count_words(char **argv);
@@ -104,6 +104,10 @@ int		opt(t_stack *stack, int a, int a_prev);
 char	count_operations(t_stack *stack);
 void	opt_rrb(t_stack *stack);
 void	choice(t_stack *stack);
+void	insert(t_stack *stack);
+t_node	*find_a_pos(t_stack *stack);
+t_node	*find_b_pos(t_stack *stack);
+int		find_pos(t_stack *stack, t_node *max, char c);
 
 //sort
 void	s_r(t_stack *stack, char c);
@@ -123,8 +127,6 @@ void	sort_10(int arg_num, t_stack *stack, char c);
 void	sort_15(int arg_num, t_stack *stack);
 void	sort_many(int arg_num, t_stack *stack);
 void	sort_middle(t_stack *stack, int unsorted);
-void	first_insert(t_stack *stack);
-void	insert(t_stack *stack);
 int		insert_chunk(t_stack *stack, int a_prev);
 
 #endif

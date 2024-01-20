@@ -6,18 +6,11 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 16:08:07 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/15 23:58:53 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:26:05 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// sa, sb, ss
-//sa (swap a): Swap the first 2 elements at the top of stack a.
-//Do nothing if there is only one or no elements.
-//sb (swap b): Swap the first 2 elements at the top of stack b.
-//Do nothing if there is only one or no elements.
-//ss : sa and sb at the same time.
 
 void	sort_2(t_stack *stack, char c)
 {
@@ -61,10 +54,6 @@ void	sort(int arg_num, t_stack *stack)
 		sort_4(stack, 'a');
 	else if (arg_num == 5)
 		sort_5(arg_num, stack, 'a');
-	else if (arg_num < 10)
-		sort_10(arg_num, stack, 'a');
-	else if (arg_num <= 15)
-		sort_15(arg_num, stack);
 	else
 		sort_many(arg_num, stack);
 }

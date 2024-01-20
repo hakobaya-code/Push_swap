@@ -6,7 +6,7 @@
 /*   By: hakobaya <hakobaya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 23:34:21 by hakobaya          #+#    #+#             */
-/*   Updated: 2024/01/16 20:00:08 by hakobaya         ###   ########.fr       */
+/*   Updated: 2024/01/20 19:47:52 by hakobaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,15 @@ void	*ft_memmove2(int *dst, int *src, int len)
 	return (dst);
 }
 
-int	*compaction(int *array, int len, t_node *node)
+void	compaction(int *array, int len, t_node *node)
 {
 	int	i;
 	int	j;
 	int	*copy;
 
-	copy = (int *)malloc((sizeof(int) * len) + 1);
-	copy[len] = '\0';
+	copy = (int *)malloc(sizeof(int) * len);
+	if (!copy)
+		exit(1);
 	ft_memmove2(copy, array, len);
 	i = 0;
 	j = 0;
@@ -81,5 +82,4 @@ int	*compaction(int *array, int len, t_node *node)
 		node = node->next;
 	}
 	free(copy);
-	return (array);
 }
